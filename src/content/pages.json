@@ -1,0 +1,838 @@
+[
+  {
+    "slug": "product",
+    "label": "Product",
+    "eyebrow": "A SHARED WAY FORWARD",
+    "title": "People, context,",
+    "accent": "and a clear next step.",
+    "description": "Bring the conversation and the work into one considered workspace. SynqHarbor connects a focused product experience with an open, self-hostable platform roadmap.",
+    "sections": [
+      {
+        "title": "A place for the whole story",
+        "body": "Move between conversations, tasks, artifacts and decisions without losing why the work matters.",
+        "items": [
+          "Rooms for shared context",
+          "A task board with clear ownership",
+          "Version-aware review and approval interactions"
+        ]
+      },
+      {
+        "title": "Human direction comes first",
+        "body": "The product architecture separates a request, an execution attempt, an artifact and authorization. These records have different responsibilities.",
+        "items": [
+          "A conversation does not grant release authority",
+          "Content approval and release approval are separate",
+          "Agent execution receives bounded permissions"
+        ]
+      },
+      {
+        "title": "Available today. Built for what follows.",
+        "body": "The current release delivers the multipage website and interactive workspace screens. Workspace changes stay in the current browser tab. Accounts, server persistence and agent execution are scheduled engineering milestones.",
+        "items": [
+          "Explore the workspace interaction design",
+          "Read the public technical documentation",
+          "Follow the ten-phase delivery roadmap"
+        ]
+      }
+    ],
+    "layout": "product",
+    "visual": "flow"
+  },
+  {
+    "slug": "features",
+    "label": "Features",
+    "eyebrow": "SMALL DETAILS. SHARED MOMENTUM.",
+    "title": "Less searching.",
+    "accent": "More moving forward.",
+    "description": "A consistent interface for seeing the work, understanding its context, and giving the right people the next decision.",
+    "sections": [
+      {
+        "title": "The work, in view",
+        "body": "Explore overview, rooms, task board, agents, approvals, artifacts, knowledge, activity and settings from one navigation system.",
+        "items": [
+          "Search and project filtering",
+          "Task creation and status interactions",
+          "Responsive layouts and keyboard focus"
+        ]
+      },
+      {
+        "title": "A more deliberate handoff",
+        "body": "The workspace illustrates the relationship between task versions, reviewed work and separate approval steps.",
+        "items": [
+          "Version changes clear outdated approval state",
+          "Review evidence stays near the task",
+          "Artifact reports can be downloaded"
+        ]
+      },
+      {
+        "title": "A platform in stages",
+        "body": "The implementation roadmap adds authenticated persistence, durable runs, scoped retrieval and connectors before expanding autonomy.",
+        "items": [
+          "Current: browser-local workspace interactions",
+          "Next: authenticated application foundation",
+          "Later: isolated execution and operational automation"
+        ]
+      }
+    ],
+    "layout": "product",
+    "visual": "grid"
+  },
+  {
+    "slug": "solutions",
+    "label": "Solutions",
+    "eyebrow": "ONE FOUNDATION. DIFFERENT RHYTHMS.",
+    "title": "Work that fits",
+    "accent": "the way you work.",
+    "description": "Client delivery, team operations and content work benefit from shared context, visible ownership and thoughtful review.",
+    "sections": [
+      {
+        "title": "Client delivery",
+        "body": "Keep the request, acceptance criteria, discussions and deliverables connected. The target workflow gives clients content review while developers retain release authority.",
+        "items": [
+          "Clear briefs and acceptance criteria",
+          "Separate content and release decisions",
+          "A traceable handoff"
+        ]
+      },
+      {
+        "title": "Team operations",
+        "body": "Turn commitments into visible work. The planned operations layer connects approved sources and prepares follow-up material for human review.",
+        "items": [
+          "Meeting context linked to tasks",
+          "Named ownership and exceptions",
+          "Scheduled checks in the roadmap"
+        ]
+      },
+      {
+        "title": "Content and ideas",
+        "body": "Keep research, drafts and brand guidance close to the work. Publishing belongs to a separately authorized integration.",
+        "items": [
+          "Brief-to-draft collaboration",
+          "Source-linked research in the roadmap",
+          "Review before external communication"
+        ]
+      }
+    ],
+    "layout": "product",
+    "visual": "flow"
+  },
+  {
+    "slug": "agents",
+    "label": "Agents",
+    "eyebrow": "EXTRA HANDS. YOUR DIRECTION.",
+    "title": "Clear roles.",
+    "accent": "Bounded responsibility.",
+    "description": "Builder and Reviewer are the initial role model. Runtime, provider, permissions and execution location remain separate design decisions.",
+    "sections": [
+      {
+        "title": "Builder",
+        "body": "A focused executor receives a bounded task, acceptance criteria and a permission scope. Work produces versioned artifacts rather than an unsupported success claim.",
+        "items": [
+          "Task-specific context",
+          "Resource and spending limits",
+          "Evidence attached to outcomes"
+        ]
+      },
+      {
+        "title": "Reviewer",
+        "body": "Review checks the exact artifact and retained evidence. A second model alone does not establish correctness; protected tests and human judgment remain necessary.",
+        "items": [
+          "Independent review context",
+          "Version-bound findings",
+          "Escalation when evidence is incomplete"
+        ]
+      },
+      {
+        "title": "Execution availability",
+        "body": "Agent profiles are part of the current interface. Provider execution, subscriptions, coding runners and scheduled agent jobs are not connected in this website release.",
+        "items": [
+          "API-first adapter qualification is planned",
+          "No provider credentials are sent to the browser",
+          "No surprise paid fallback"
+        ]
+      }
+    ],
+    "layout": "product",
+    "visual": "orbit"
+  },
+  {
+    "slug": "integrations",
+    "label": "Integrations",
+    "eyebrow": "YOUR TOOLS. A CONTROLLED CONNECTION.",
+    "title": "Connect the context.",
+    "accent": "Keep the boundaries.",
+    "description": "The integration roadmap prioritizes one qualified connector at a time, explicit permissions and recoverable external actions.",
+    "sections": [
+      {
+        "title": "Tools and knowledge",
+        "body": "MCP is a planned tool-connection interface. Every call must still pass application authorization and scoped credential checks.",
+        "items": [
+          "Read grants separated from write grants",
+          "Revocation enforced before new actions",
+          "Search and downloads share the same authorization rules"
+        ]
+      },
+      {
+        "title": "Code delivery",
+        "body": "Repository access, isolated execution and publishing authority are separate capabilities. Native coding-agent adapters require provider-specific qualification.",
+        "items": [
+          "Disposable execution environments",
+          "Protected tests and independent review",
+          "Human release authorization"
+        ]
+      },
+      {
+        "title": "Connection status",
+        "body": "No third-party accounts or providers are connected by this website. The current release has no paid API runtime or automatic external publication.",
+        "items": [
+          "MCP: planned",
+          "Repository connector: planned",
+          "Business-source connector: planned"
+        ]
+      }
+    ],
+    "layout": "product",
+    "visual": "grid"
+  },
+  {
+    "slug": "self-hosting",
+    "label": "Self-hosting",
+    "eyebrow": "OWN THE DEPLOYMENT.",
+    "title": "Your infrastructure.",
+    "accent": "A clearer handover.",
+    "description": "The website ships as a static Next.js export. The platform roadmap keeps the authenticated core and execution workers under explicit operator ownership.",
+    "sections": [
+      {
+        "title": "Deploy the current website",
+        "body": "Use Node.js 24, install the locked dependencies, configure the public origin, and build. Serve the exported files with a static web server.",
+        "items": [
+          "npm ci",
+          "npm run build",
+          "Serve out/ over HTTPS; preserve actual 404 responses"
+        ]
+      },
+      {
+        "title": "Configuration and recovery",
+        "body": "The repository documents public configuration separately from secret recovery material. Versioned releases, file manifests and off-server archives support restoration.",
+        "items": [
+          "Set NEXT_PUBLIC_SITE_URL before building",
+          "Keep credentials outside version control",
+          "Verify restored files and live parity"
+        ]
+      },
+      {
+        "title": "Future platform operation",
+        "body": "FastAPI, PostgreSQL, private object storage and isolated outbound runners form the planned application architecture. Their implementation remains a separate engineering phase.",
+        "items": [
+          "An existing server supports the startup path",
+          "AWS/GCP/Azure public surfaces have qualified free options",
+          "Large-scale capacity requires measured sizing and approved funding"
+        ]
+      }
+    ],
+    "layout": "docs",
+    "visual": "flow"
+  },
+  {
+    "slug": "docs",
+    "label": "Documentation",
+    "eyebrow": "THE DETAILS, IN ONE PLACE.",
+    "title": "Understand it.",
+    "accent": "Build with confidence.",
+    "description": "Public engineering documentation connects current behavior, operating responsibilities and the future platform architecture.",
+    "sections": [
+      {
+        "title": "Start with the architecture",
+        "body": "Understand component boundaries, data ownership, task/run separation, authorization and deployment responsibilities.",
+        "items": [
+          "Architecture and API roadmap",
+          "Configuration and self-hosting",
+          "Current capabilities and release scope"
+        ]
+      },
+      {
+        "title": "Operate deliberately",
+        "body": "The operating guides cover deployment, rollback, backups, incident response and reliability objectives.",
+        "items": [
+          "99% initial availability objective",
+          "Backup restoration and recovery targets",
+          "Monitoring and error-budget policy"
+        ]
+      },
+      {
+        "title": "Plan for growth",
+        "body": "The scalability guide defines a future one-million-user envelope with explicit assumptions and qualification gates.",
+        "items": [
+          "Connected users versus active requests",
+          "Regional cells, bounded pools and backpressure",
+          "Progressive load tests and cost checkpoints"
+        ]
+      }
+    ],
+    "layout": "docs",
+    "visual": "grid"
+  },
+  {
+    "slug": "roadmap",
+    "label": "Roadmap",
+    "eyebrow": "BROAD ARCHITECTURE. FOCUSED DELIVERY.",
+    "title": "A clear course.",
+    "accent": "One useful release at a time.",
+    "description": "Ten engineering phases build from a verified foundation to reliable client workflows and operational readiness. Every phase has parallel disciplines and a deployment gate.",
+    "sections": [
+      {
+        "title": "01–03 · Establish the foundation",
+        "body": "Repeatable deployment, secure identity and tenancy, then durable collaboration form the first platform foundation.",
+        "items": [
+          "01: foundation and deployment skeleton",
+          "02: identity, tenancy and secure workspaces",
+          "03: collaboration, tasks and durable controlled execution"
+        ]
+      },
+      {
+        "title": "04–07 · Complete the delivery path",
+        "body": "Versioned artifacts and approval authority precede local execution, client delivery and permission-aware knowledge.",
+        "items": [
+          "04: artifacts, protected evidence and exact approvals",
+          "05: qualified local AI and isolated Builder/Reviewer",
+          "06: complete client-to-developer delivery",
+          "07: scoped knowledge and controlled memory"
+        ]
+      },
+      {
+        "title": "08–10 · Make operation repeatable",
+        "body": "Business workflows, reliability and portability lead to a verified pilot and handover. Expansion follows measured requirements.",
+        "items": [
+          "08: business workflows, schedules and reusable skills",
+          "09: operations, reliability, portability and capacity qualification",
+          "10: production pilot, independent audit and handover"
+        ]
+      },
+      {
+        "title": "Current milestone",
+        "body": "The multipage website, public documentation and interactive workspace screens are available. Backend, agent and cloud engineering exit gates remain scheduled work.",
+        "items": [
+          "Each phase has frontend/backend/infra/quality tracks",
+          "Every deployment requires rollback and verification",
+          "The full plan remains in the public repository"
+        ]
+      }
+    ],
+    "layout": "docs",
+    "visual": "flow"
+  },
+  {
+    "slug": "about",
+    "label": "About",
+    "eyebrow": "WHY SYNQHARBOR EXISTS.",
+    "title": "Good work deserves",
+    "accent": "a shared place.",
+    "description": "SynqHarbor AI is an independent project maintained by Zahidul Islam, designed around human-led collaboration and controlled agent workflows.",
+    "sections": [
+      {
+        "title": "The problem worth solving",
+        "body": "Conversation tools, task systems and individual AI sessions often separate the context from the outcome. SynqHarbor aims to reconnect that story.",
+        "items": [
+          "One place for the brief and decisions",
+          "A visible path from work to review",
+          "A handover another operator can understand"
+        ]
+      },
+      {
+        "title": "The principles",
+        "body": "Make responsibility clear. Keep permissions explicit. Prefer useful evidence over activity volume. Build portable systems with documented ownership.",
+        "items": [
+          "Human direction",
+          "Replaceable agent runtimes",
+          "Client-controlled deployment"
+        ]
+      },
+      {
+        "title": "Follow the work",
+        "body": "Development and public technical documentation are maintained in the project repository. Feedback can be shared through the contact page.",
+        "items": [
+          "Maintainer: Zahidul Islam",
+          "Working name: SynqHarbor AI",
+          "Open-source website; platform roadmap published"
+        ]
+      }
+    ],
+    "layout": "product",
+    "visual": "orbit"
+  },
+  {
+    "slug": "contact",
+    "label": "Contact",
+    "eyebrow": "LET’S MAKE THE NEXT STEP CLEAR.",
+    "title": "Start a conversation.",
+    "accent": "Bring the context.",
+    "description": "For project questions, collaboration and technical feedback, use the maintainer’s GitHub profile or the project issue tracker.",
+    "sections": [
+      {
+        "title": "Project questions",
+        "body": "Include the goal, relevant workflow, deployment environment and the outcome you need. Keep credentials and private client data out of public messages.",
+        "items": [
+          "Describe the problem and expected behavior",
+          "Include reproducible steps for a bug",
+          "Use private reporting for security details"
+        ]
+      },
+      {
+        "title": "Security reports",
+        "body": "Use the repository’s private vulnerability reporting channel for sensitive findings. Public issues are appropriate for general documentation and non-sensitive defects.",
+        "items": [
+          "Read the security policy first",
+          "Provide a minimal reproducible report",
+          "Do not publish access tokens or personal data"
+        ]
+      },
+      {
+        "title": "Support expectations",
+        "body": "This independently maintained project has no contracted response-time SLA. Commercial delivery and operational support are agreed separately.",
+        "items": [
+          "Public issues: general support",
+          "Private reports: vulnerabilities",
+          "No message is sent by this website"
+        ]
+      }
+    ],
+    "layout": "article",
+    "visual": "none"
+  },
+  {
+    "slug": "security",
+    "label": "Security",
+    "eyebrow": "TRUST BEGINS WITH CLEAR BOUNDARIES.",
+    "title": "Visible controls.",
+    "accent": "Explicit responsibility.",
+    "description": "Security documentation describes current website controls and the requirements that govern the future authenticated platform.",
+    "sections": [
+      {
+        "title": "Current website controls",
+        "body": "The release uses self-hosted assets, HTTPS, a restrictive script policy, dependency scanning and a hardened static server. Secrets and private project records are excluded from publication.",
+        "items": [
+          "Content Security Policy generated from release scripts",
+          "No provider credentials in browser code",
+          "Nonroot, read-only, resource-bounded serving"
+        ]
+      },
+      {
+        "title": "Future application requirements",
+        "body": "Every resource access must pass tenant and role authorization. Sessions, CSRF, grants, immutable approvals and isolated workers are engineering requirements before real workflow execution.",
+        "items": [
+          "OWASP ASVS control mapping",
+          "Independent approval actors and exact versions",
+          "Bounded tools and revocable connector grants"
+        ]
+      },
+      {
+        "title": "Report a vulnerability",
+        "body": "Follow SECURITY.md in the repository. Private vulnerability reporting is the preferred channel; do not test unrelated infrastructure or access other people’s data.",
+        "items": [
+          "Report affected version and reproduction",
+          "Avoid denial-of-service testing",
+          "Coordinate disclosure and verification"
+        ]
+      }
+    ],
+    "layout": "article",
+    "visual": "grid"
+  },
+  {
+    "slug": "privacy",
+    "label": "Privacy",
+    "eyebrow": "DATA RESPONSIBILITIES.",
+    "title": "Know what is handled.",
+    "accent": "Know who controls it.",
+    "description": "This policy describes the current website. A future authenticated service will publish an updated processing schedule before accepting account or client-workspace data.",
+    "sections": [
+      {
+        "title": "Current website information",
+        "body": "The website does not provide account registration, analytics advertising or an intake form. Workspace edits exist in browser-tab memory and disappear on reload.",
+        "items": [
+          "Static resources are requested from hosting and network providers",
+          "Network/security logs may contain IP, URL, timestamp and browser information",
+          "No workspace content is transmitted by the current interface"
+        ]
+      },
+      {
+        "title": "Hosting and third-party links",
+        "body": "The current deployment uses an existing Contabo server and Cloudflare delivery/security services. Their independent network processing is covered by their own policies. Following a GitHub link enters GitHub’s service.",
+        "items": [
+          "No advertising trackers are installed",
+          "No inference provider receives workspace content",
+          "The operator controls server access and log rotation",
+          "Server logs use capacity-based rotation; a fixed age-based retention limit is not currently verified"
+        ]
+      },
+      {
+        "title": "Rights, retention and future processing",
+        "body": "Contact the maintainer through the contact page for a privacy concern. Retention, rights handling, processing roles and applicable law must be specified for each future hosted customer deployment.",
+        "items": [
+          "Self-host operators control their deployment data",
+          "Do not enter sensitive client content in public feedback",
+          "No jurisdiction-specific certification is claimed"
+        ]
+      }
+    ],
+    "layout": "article",
+    "visual": "none"
+  },
+  {
+    "slug": "terms",
+    "label": "Terms of use",
+    "eyebrow": "USE WITH A CLEAR UNDERSTANDING.",
+    "title": "A considered workspace.",
+    "accent": "Clear terms of use.",
+    "description": "These terms describe access to the public website maintained by Zahidul Islam. Customer contracts and hosted application terms require separate agreement.",
+    "sections": [
+      {
+        "title": "Website and software",
+        "body": "Public information and interface features are provided as available. The source-code license governs use of the repository’s software; it does not grant third-party trademarks, credentials or hosted infrastructure.",
+        "items": [
+          "Apache License 2.0 applies to project source",
+          "Third-party dependencies retain their licenses",
+          "SynqHarbor is a working product name"
+        ]
+      },
+      {
+        "title": "Your responsibilities",
+        "body": "Use the website lawfully. Do not attempt to obtain credentials, disrupt shared services or expose other people’s information. You remain responsible for content you publish to linked services.",
+        "items": [
+          "Respect privacy and intellectual-property rights",
+          "Follow the acceptable-use policy",
+          "Use private reporting for vulnerabilities"
+        ]
+      },
+      {
+        "title": "Service boundaries and changes",
+        "body": "The roadmap describes future engineering work. Availability objectives are operating targets rather than a contractual service-level agreement. Commercial scope, jurisdiction and liability terms must be agreed separately.",
+        "items": [
+          "No paid subscription is sold here",
+          "No third-party account connection is activated here",
+          "Policies may change as delivered capabilities change"
+        ]
+      }
+    ],
+    "layout": "article",
+    "visual": "none"
+  },
+  {
+    "slug": "acceptable-use",
+    "label": "Acceptable use",
+    "eyebrow": "SHARED SPACE. SHARED RESPONSIBILITY.",
+    "title": "Build useful things.",
+    "accent": "Respect the boundaries.",
+    "description": "Responsible use protects collaborators, operators and the systems connected to their work.",
+    "sections": [
+      {
+        "title": "Permitted use",
+        "body": "Explore the public information and interface, read the code and documentation, and report issues through the stated channels.",
+        "items": [
+          "Follow the source license",
+          "Use only data you are entitled to share",
+          "Stay within authorized security research scope"
+        ]
+      },
+      {
+        "title": "Prohibited activity",
+        "body": "Do not attempt credential theft, unauthorized access, malware distribution, harassment, deceptive impersonation or disruption of other services.",
+        "items": [
+          "No scanning unrelated infrastructure",
+          "No bulk abuse of support channels",
+          "No unlawful or rights-infringing content"
+        ]
+      },
+      {
+        "title": "Future agent execution",
+        "body": "The platform roadmap requires least-privilege grants, bounded execution and human authorization for consequential external actions.",
+        "items": [
+          "A prompt cannot override permissions",
+          "Connector grants can be revoked",
+          "Execution policies accompany each supported adapter"
+        ]
+      }
+    ],
+    "layout": "article",
+    "visual": "none"
+  },
+  {
+    "slug": "cookies",
+    "label": "Cookies",
+    "eyebrow": "A LIGHTER FOOTPRINT.",
+    "title": "No tracking agenda.",
+    "accent": "A clear browser policy.",
+    "description": "The current website does not install advertising, analytics or account-session cookies.",
+    "sections": [
+      {
+        "title": "Current behavior",
+        "body": "Appearance and workspace interactions live in the current page state. No account authentication or persistent workspace storage is provided by this release.",
+        "items": [
+          "No advertising cookies",
+          "No analytics cookies",
+          "No browser localStorage credentials"
+        ]
+      },
+      {
+        "title": "Network services",
+        "body": "Hosting and security providers may process technical request information or apply security mechanisms. Their behavior can depend on their configuration and the request.",
+        "items": [
+          "Cloudflare supplies network delivery/security",
+          "External GitHub pages have their own policies",
+          "The website does not control third-party pages"
+        ]
+      },
+      {
+        "title": "Future changes",
+        "body": "Authenticated platform sessions will require a documented secure cookie policy. Optional tracking would require its own assessment and consent handling where applicable.",
+        "items": [
+          "Host-only secure session design",
+          "HttpOnly and SameSite controls planned",
+          "Policy updated before capability changes"
+        ]
+      }
+    ],
+    "layout": "article",
+    "visual": "none"
+  },
+  {
+    "slug": "accessibility",
+    "label": "Accessibility",
+    "eyebrow": "A WORKSPACE WITH ROOM FOR EVERYONE.",
+    "title": "Considered interaction.",
+    "accent": "Continual improvement.",
+    "description": "The design targets WCAG 2.2 AA and includes reduced motion, keyboard operation and responsive layouts. Full conformance requires continued human and automated evaluation.",
+    "sections": [
+      {
+        "title": "Built into the interface",
+        "body": "Semantic navigation, visible focus, labeled controls and motion preferences support everyday use.",
+        "items": [
+          "Reduced-motion media behavior",
+          "Responsive reflow and readable contrast",
+          "Dialogs and mobile navigation focus handling"
+        ]
+      },
+      {
+        "title": "Verification approach",
+        "body": "Automated checks cover selected routes and interaction states. Keyboard, zoom, assistive technology and real-device checks extend that evidence.",
+        "items": [
+          "Test complete workflows rather than isolated widgets",
+          "Inspect validation and status announcements",
+          "Record and fix barriers found after release"
+        ]
+      },
+      {
+        "title": "Report a barrier",
+        "body": "Use the contact page with the affected URL, browser, assistive technology and a description of the issue. Include only information you are comfortable sharing.",
+        "items": [
+          "Alternative formats can be discussed",
+          "Public issues for non-sensitive barriers",
+          "No accessibility certification is asserted"
+        ]
+      }
+    ],
+    "layout": "article",
+    "visual": "none"
+  },
+  {
+    "slug": "status",
+    "label": "Service status",
+    "eyebrow": "A CHECK, NOT A GUESS.",
+    "title": "See what is reachable.",
+    "accent": "Understand the objective.",
+    "description": "Check the current website connection below. This point-in-time check is separate from historical availability measurement.",
+    "sections": [
+      {
+        "title": "Website reachability",
+        "body": "The status control requests the website from your browser and reports the result. It does not establish global reachability or a historical uptime percentage.",
+        "items": [
+          "Check the current HTTPS route",
+          "Show the most recent check time",
+          "Report failures without inventing a history"
+        ]
+      },
+      {
+        "title": "Availability objective",
+        "body": "The proposed initial target is 99% availability over rolling 30 days. A future multi-zone stage targets 99.9% after monitoring and recovery qualification.",
+        "items": [
+          "Measure successful eligible requests",
+          "Count timeouts and valid-workload throttling",
+          "Review error budgets and incident causes"
+        ]
+      },
+      {
+        "title": "Operating scope",
+        "body": "The website runs on an existing host. The authenticated API and asynchronous agent workers are roadmap services and have no current public uptime history.",
+        "items": [
+          "Separate website/API/job SLIs",
+          "Single-host failure exposure documented",
+          "No contractual SLA is offered by this page"
+        ]
+      }
+    ],
+    "layout": "article",
+    "visual": "flow"
+  },
+  {
+    "slug": "docs/architecture",
+    "label": "Architecture",
+    "eyebrow": "ENGINEERING DOCUMENTATION",
+    "title": "A system with clear owners.",
+    "accent": "",
+    "description": "Next.js exports static routes. React and Motion handle browser interactions. A hardened static server sits behind Caddy HTTPS and Cloudflare delivery. Browser workspace state does not leave the tab.",
+    "sections": [
+      {
+        "title": "Current website",
+        "body": "Next.js exports static routes. React and Motion handle browser interactions. A hardened static server sits behind Caddy HTTPS and Cloudflare delivery. Browser workspace state does not leave the tab.",
+        "items": []
+      },
+      {
+        "title": "Future control plane",
+        "body": "FastAPI and PostgreSQL own identities, membership, tasks, runs, artifacts, approvals, grants and an append-only application audit trail. A modular monolith keeps one authoritative task dispatcher.",
+        "items": []
+      },
+      {
+        "title": "Execution boundary",
+        "body": "Outbound runners accept bounded assignments. Coding work runs in disposable isolated environments; the web server never executes arbitrary agent-generated commands. Tools enforce authorization independently of model output.",
+        "items": []
+      }
+    ],
+    "layout": "docs",
+    "visual": "grid"
+  },
+  {
+    "slug": "docs/api",
+    "label": "API roadmap",
+    "eyebrow": "ENGINEERING DOCUMENTATION",
+    "title": "A contract before a connection.",
+    "accent": "",
+    "description": "The current website has no deployed application API. No account, connector, inference or release request is issued by the browser. The public source documents the future contract.",
+    "sections": [
+      {
+        "title": "Current interfaces",
+        "body": "The current website has no deployed application API. No account, connector, inference or release request is issued by the browser. The public source documents the future contract.",
+        "items": []
+      },
+      {
+        "title": "Planned API domains",
+        "body": "Identity and sessions; organizations and membership; rooms and messages; tasks and runs; artifacts and approvals; connector grants; usage and schedules. OpenAPI will be generated from implemented routes.",
+        "items": []
+      },
+      {
+        "title": "Contract requirements",
+        "body": "Tenant scope and role checks apply to every object access. Unsafe requests require CSRF/origin protection. Input bounds, pagination, optimistic revisions, idempotency and structured errors are part of endpoint acceptance criteria.",
+        "items": []
+      }
+    ],
+    "layout": "docs",
+    "visual": "grid"
+  },
+  {
+    "slug": "docs/security",
+    "label": "Security architecture",
+    "eyebrow": "ENGINEERING DOCUMENTATION",
+    "title": "Permissions before prompts.",
+    "accent": "",
+    "description": "The authenticated phase requires secure server-side sessions, revocation, exact Origin checks, CSRF protection and explicit membership authorization before any object reaches the caller.",
+    "sections": [
+      {
+        "title": "Identity and tenant boundaries",
+        "body": "The authenticated phase requires secure server-side sessions, revocation, exact Origin checks, CSRF protection and explicit membership authorization before any object reaches the caller.",
+        "items": []
+      },
+      {
+        "title": "Artifacts and consequential actions",
+        "body": "Approvals bind the exact version/hash, destination and arguments. A content change invalidates authorization. Separate actors approve content and release. External writes record intent, idempotency keys and destination receipts.",
+        "items": []
+      },
+      {
+        "title": "Execution and retrieval",
+        "body": "Apply permissions before retrieval content reaches a model. Treat retrieved instructions as untrusted. Isolate runners and generated applications, restrict network/filesystem access, and keep provider credentials outside browser code.",
+        "items": []
+      }
+    ],
+    "layout": "docs",
+    "visual": "grid"
+  },
+  {
+    "slug": "docs/scalability",
+    "label": "Scalability",
+    "eyebrow": "ENGINEERING DOCUMENTATION",
+    "title": "A million connections needs a workload.",
+    "accent": "",
+    "description": "Target one million simultaneously connected users, with an assumed 10% active fraction and 0.2 API requests per active user per second: 20,000 requests/second sustained and 40,000 burst. These are planning assumptions, not test results.",
+    "sections": [
+      {
+        "title": "Future design envelope",
+        "body": "Target one million simultaneously connected users, with an assumed 10% active fraction and 0.2 API requests per active user per second: 20,000 requests/second sustained and 40,000 burst. These are planning assumptions, not test results.",
+        "items": []
+      },
+      {
+        "title": "Architecture stages",
+        "body": "Progress from a measured single-host core to stateless replicas, bounded connection pools and separate gateways; then regional cells, tenant routing, private object storage and partitioning justified by query evidence.",
+        "items": []
+      },
+      {
+        "title": "Qualification and funding",
+        "body": "Test 1K, 10K, 100K and 1M connections with realistic write ratios, tenant skew, reconnect storms and failure recovery. Size services from measured throughput and target utilization. Startup free plans do not fund the full target envelope.",
+        "items": []
+      }
+    ],
+    "layout": "docs",
+    "visual": "grid"
+  },
+  {
+    "slug": "docs/reliability",
+    "label": "Reliability",
+    "eyebrow": "ENGINEERING DOCUMENTATION",
+    "title": "Define the objective. Measure the experience.",
+    "accent": "",
+    "description": "Proposed website/core availability objective: 99% over rolling 30 days, corresponding to 7h 12m of time-based unavailability. Future multi-zone objective 99.9% corresponds to 43m 12s. These are objectives, not observed history or contractual promises.",
+    "sections": [
+      {
+        "title": "Initial operating objective",
+        "body": "Proposed website/core availability objective: 99% over rolling 30 days, corresponding to 7h 12m of time-based unavailability. Future multi-zone objective 99.9% corresponds to 43m 12s. These are objectives, not observed history or contractual promises.",
+        "items": []
+      },
+      {
+        "title": "Measurement policy",
+        "body": "Separate website availability, authenticated API success/latency and asynchronous completion. Count eligible timeouts, 5xx and valid-workload 429s as failures. Define maintenance treatment, telemetry gaps and monitoring coverage explicitly.",
+        "items": []
+      },
+      {
+        "title": "Response and recovery",
+        "body": "Use public incident communication, error-budget-based prioritization, rollback procedures and postmortems. Backup success must be followed by a timed restore drill and application-level verification.",
+        "items": []
+      }
+    ],
+    "layout": "docs",
+    "visual": "grid"
+  },
+  {
+    "slug": "docs/operations",
+    "label": "Operations",
+    "eyebrow": "ENGINEERING DOCUMENTATION",
+    "title": "A release another person can operate.",
+    "accent": "",
+    "description": "Build locally from the lockfile with the intended public origin. Keep versioned releases and content hashes. Validate the project server configuration before atomic activation, preserving unrelated applications.",
+    "sections": [
+      {
+        "title": "Website deployment",
+        "body": "Build locally from the lockfile with the intended public origin. Keep versioned releases and content hashes. Validate the project server configuration before atomic activation, preserving unrelated applications.",
+        "items": []
+      },
+      {
+        "title": "Backup and rollback",
+        "body": "Retain an off-server release archive and verify extraction against the manifest. Keep a previous release for rollback. The future database phase adds encrypted off-host backups, retention and restore drills before valuable data is accepted.",
+        "items": []
+      },
+      {
+        "title": "Recovery targets",
+        "body": "Proposed initial application targets: RPO≤24h and RTO≤8h; later RPO≤15min/RTO≤1h after WAL/PITR and operational qualification. They remain targets until timed restoration evidence is published.",
+        "items": []
+      }
+    ],
+    "layout": "docs",
+    "visual": "grid"
+  }
+]

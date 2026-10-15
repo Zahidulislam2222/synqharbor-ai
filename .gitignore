@@ -1,0 +1,68 @@
+# Private recovery, project narrative, and memory
+/CREDENTIALS.md
+/PROJECT-DOSSIER.md
+/DEFECT-LOG.md
+/memory/
+/.claude/settings.local.json
+
+# Local environment and authentication material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa
+id_ecdsa
+id_ed25519
+/.ssh/
+/.aws/
+/.azure/
+/.gcloud/
+/.credentials/
+/credentials/
+/secrets/
+/licenses/
+*.license
+
+# Personal manual tests; reserve tests/ for the real automated CI suite
+/manual-tests/
+
+# Local tools, dependencies, generated output, and browser/deploy artifacts
+/.tools/
+/.venv/
+/.venv-api/
+/backend/.env
+/backend/.pytest_cache/
+/backend/.ruff_cache/
+/backend/.mypy_cache/
+# Unpublished local backend work; excluded by the owner's narrowed release scope.
+/backend/
+/my-project-view/.doc-id
+/my-project-view/*.pdf
+/venv/
+/node_modules/
+/dist/
+/build/
+/out/
+*.tsbuildinfo
+/.next/
+/.cache/
+/.pytest_cache/
+/.mypy_cache/
+/.ruff_cache/
+__pycache__/
+*.py[cod]
+*.log
+/coverage/
+/.coverage
+/artifacts/
+/.playwright-mcp/
+/_live_server/
+
+# OS/editor metadata
+.DS_Store
+Thumbs.db
+/.idea/

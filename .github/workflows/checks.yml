@@ -1,0 +1,44 @@
+name: checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_SITE_URL: https://synqharbor.zahidul-islam.com
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24.22.0
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm audit --audit-level=low
+      - run: npm run build
+  security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: pipx run --spec semgrep==1.168.0 semgrep scan --error --config p/security-audit --metrics=off src tests
+      - run: pipx run --spec bandit==1.9.4 bandit -q -ll -r scripts
+      # Derived from the existing machine security CI template.
+      # Bandit covers the documentation renderer; no Python application backend is published.
+      # Optional paid AI review remains disabled; no provider API key is configured.
+      # Standard public-repository runners only; no artifact-storage uploads.

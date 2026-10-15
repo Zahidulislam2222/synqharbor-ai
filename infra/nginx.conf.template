@@ -1,0 +1,17 @@
+worker_processes 1;
+pid ${TEMP_ROOT}/nginx.pid;
+events { worker_connections 512; }
+http {
+    include /etc/nginx/mime.types;
+    server_tokens off;
+    server {
+        listen ${INTERNAL_PORT};
+        root ${STATIC_ROOT};
+        index index.html;
+        add_header X-Content-Type-Options nosniff always;
+        add_header Referrer-Policy strict-origin-when-cross-origin always;
+        add_header Content-Security-Policy "${GENERATED_CSP}" always;
+        location / { try_files $uri $uri/ =404; }
+        error_page 404 /404.html;
+    }
+}

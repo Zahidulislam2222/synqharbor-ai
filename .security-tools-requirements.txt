@@ -1,0 +1,3 @@
+# Local workflow tooling only; these are not application dependencies.
+pre-commit==4.7.0
+bandit==1.9.4

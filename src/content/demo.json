@@ -1,0 +1,404 @@
+{
+  "workspace": {
+    "participants": ["Alex Morgan", "Maya Chen", "Builder", "Reviewer"],
+    "name": "Atelier workspace",
+    "initials": "A",
+    "plan": "A little space for big ideas",
+    "user": "Alex Morgan",
+    "userInitials": "AM",
+    "userRole": "Workspace lead",
+    "greeting": "A good day to make things happen.",
+    "subtitle": "Your people, your agents, and the work moving forward.",
+    "projectName": "Northstar website",
+    "date": "Friday, 16 October",
+    "room": "website-refresh"
+  },
+  "navigation": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "overview"
+    },
+    {
+      "id": "rooms",
+      "label": "Rooms",
+      "icon": "rooms"
+    },
+    {
+      "id": "board",
+      "label": "Work board",
+      "icon": "board"
+    },
+    {
+      "id": "agents",
+      "label": "Agents",
+      "icon": "agents"
+    },
+    {
+      "id": "approvals",
+      "label": "Approvals",
+      "icon": "approvals"
+    },
+    {
+      "id": "artifacts",
+      "label": "Artifacts",
+      "icon": "artifacts"
+    },
+    {
+      "id": "knowledge",
+      "label": "Knowledge",
+      "icon": "knowledge"
+    },
+    {
+      "id": "activity",
+      "label": "Activity",
+      "icon": "activity"
+    }
+  ],
+  "projects": ["Northstar website", "Studio operations", "Autumn campaign"],
+  "priorities": ["Normal", "High", "Low"],
+  "statuses": [
+    {
+      "id": "planned",
+      "label": "To explore",
+      "className": "planned"
+    },
+    {
+      "id": "progress",
+      "label": "In flow",
+      "className": "progress"
+    },
+    {
+      "id": "review",
+      "label": "In review",
+      "className": "review"
+    },
+    {
+      "id": "complete",
+      "label": "Complete",
+      "className": "complete"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "SH-104",
+      "title": "Give the homepage a fresh perspective",
+      "project": "Northstar website",
+      "status": "review",
+      "owner": "Builder",
+      "type": "Design & development",
+      "priority": "High",
+      "description": "A warmer welcome, a clearer story, and a more considered mobile experience for the Northstar homepage.",
+      "criteria": [
+        "The headline and primary action are clear on mobile",
+        "All interactive elements have visible focus states",
+        "The client reviews the exact artifact version"
+      ],
+      "tags": ["Website", "Client delivery"],
+      "version": 3,
+      "clientApproved": false,
+      "developerApproved": false
+    },
+    {
+      "id": "SH-105",
+      "title": "Turn the kickoff into clear next steps",
+      "project": "Studio operations",
+      "status": "progress",
+      "owner": "Reviewer",
+      "type": "Operations",
+      "priority": "Normal",
+      "description": "Bring the decisions and commitments from our kickoff notes into a focused action plan.",
+      "criteria": [
+        "Each commitment links to a source",
+        "Every next step has a named owner"
+      ],
+      "tags": ["Operations"],
+      "version": 1,
+      "clientApproved": false,
+      "developerApproved": false
+    },
+    {
+      "id": "SH-106",
+      "title": "Explore a new direction for the campaign",
+      "project": "Autumn campaign",
+      "status": "planned",
+      "owner": "Alex",
+      "type": "Creative",
+      "priority": "Normal",
+      "description": "Collect a few considered directions for a fictional autumn campaign.",
+      "criteria": ["Three distinct ideas with a clear audience"],
+      "tags": ["Creative", "Research"],
+      "version": 1,
+      "clientApproved": false,
+      "developerApproved": false
+    },
+    {
+      "id": "SH-107",
+      "title": "A second look at the mobile navigation",
+      "project": "Northstar website",
+      "status": "complete",
+      "owner": "Reviewer",
+      "type": "Review",
+      "priority": "Normal",
+      "description": "review of tap targets, focus order, and navigation hierarchy.",
+      "criteria": ["Touch and keyboard navigation are covered"],
+      "tags": ["Review"],
+      "version": 2,
+      "clientApproved": true,
+      "developerApproved": true
+    },
+    {
+      "id": "SH-108",
+      "title": "Bring the brand voice into one place",
+      "project": "Autumn campaign",
+      "status": "progress",
+      "owner": "Builder",
+      "type": "Content",
+      "priority": "Low",
+      "description": "Organize the tone of voice into a useful reference for the team.",
+      "criteria": ["Clear voice principles and examples"],
+      "tags": ["Content"],
+      "version": 1,
+      "clientApproved": false,
+      "developerApproved": false
+    },
+    {
+      "id": "SH-109",
+      "title": "Shape a smoother client handoff",
+      "project": "Studio operations",
+      "status": "planned",
+      "owner": "Alex",
+      "type": "Operations",
+      "priority": "Normal",
+      "description": "Outline a thoughtful handoff with the right evidence and next steps.",
+      "criteria": ["Deliverables and decisions are connected"],
+      "tags": ["Client delivery"],
+      "version": 1,
+      "clientApproved": false,
+      "developerApproved": false
+    }
+  ],
+  "agents": [
+    {
+      "name": "Builder",
+      "role": "Turns direction into something tangible.",
+      "symbol": "✳",
+      "className": "builder",
+      "status": "Planned execution role",
+      "capabilities": [
+        "Draft deliverables",
+        "Propose code changes",
+        "Create artifacts"
+      ],
+      "boundary": "Proposes work. Cannot publish or release.",
+      "assignment": "Give the homepage a fresh perspective"
+    },
+    {
+      "name": "Reviewer",
+      "role": "A fresh perspective before the next step.",
+      "symbol": "◎",
+      "className": "reviewer",
+      "status": "Planned execution role",
+      "capabilities": [
+        "Check acceptance criteria",
+        "Inspect evidence",
+        "Recommend next steps"
+      ],
+      "boundary": "Recommends a decision. Cannot approve for a human.",
+      "assignment": "A second look at the mobile navigation"
+    }
+  ],
+  "messages": [
+    {
+      "name": "Alex Morgan",
+      "initials": "AM",
+      "role": "Workspace lead",
+      "time": "09:12",
+      "text": "Let’s give the Northstar homepage a warmer welcome. I’ve added the brief and a few references to the knowledge space.",
+      "type": "human"
+    },
+    {
+      "name": "Builder",
+      "initials": "✳",
+      "role": "Agent",
+      "time": "09:14",
+      "text": "A clear direction. I’ll bring the headline, the story, and the mobile experience together in a first workspace.",
+      "type": "builder"
+    },
+    {
+      "name": "Maya Chen",
+      "initials": "MC",
+      "role": "Client",
+      "time": "09:18",
+      "text": "Love the direction. A little more breathing room and a clearer way into our work would be great.",
+      "type": "human"
+    },
+    {
+      "name": "Reviewer",
+      "initials": "◎",
+      "role": "Agent",
+      "time": "09:26",
+      "text": "I’ve taken a second look at version 3. The workspace is ready for a human review, with the checklist attached.",
+      "type": "reviewer"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "Homepage concept",
+      "type": "Design workspace",
+      "version": "v3",
+      "task": "SH-104",
+      "description": "A warmer, clearer first impression for Northstar.",
+      "icon": "image"
+    },
+    {
+      "name": "Mobile review notes",
+      "type": "Review document",
+      "version": "v2",
+      "task": "SH-107",
+      "description": "Focus order, tap targets, and an independent second look.",
+      "icon": "document"
+    },
+    {
+      "name": "Kickoff action plan",
+      "type": "Operations",
+      "version": "v1",
+      "task": "SH-105",
+      "description": "The commitments and next steps from a meeting.",
+      "icon": "table"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Northstar project brief",
+      "type": "Project brief",
+      "scope": "Project",
+      "description": "Audience, goals, deliverables, and what a good outcome looks like.",
+      "details": "Project brief: a welcoming homepage, a strong editorial story and a considered mobile experience. The current task and artifact interactions are kept in this browser tab."
+    },
+    {
+      "title": "Voice & visual direction",
+      "type": "Brand guide",
+      "scope": "Workspace",
+      "description": "Thoughtful, clear, human. A shared creative starting point.",
+      "details": "Keep the voice warm and direct. Give important ideas room to breathe. Use clear headings, useful labels, and imagery that serves the story. Avoid exaggerated claims, fake testimonials, or invented performance metrics."
+    },
+    {
+      "title": "Kickoff conversation",
+      "type": "Meeting notes",
+      "scope": "Project",
+      "description": "Decisions, commitments, and the context behind the work.",
+      "details": "Alex will share the project brief. Maya will review the homepage direction. Builder will propose a first draft. Reviewer will inspect the exact version. Client content approval and developer release approval are separate steps."
+    },
+    {
+      "title": "The review checklist",
+      "type": "Reference",
+      "scope": "Task",
+      "description": "The small details that make a thoughtful handoff.",
+      "details": "Check the outcome against acceptance criteria. Inspect the exact artifact version. Confirm keyboard and mobile usability. Keep source references with the result. A statement that work is done is not evidence that it meets the brief."
+    }
+  ],
+  "activity": [
+    {
+      "actor": "Reviewer",
+      "text": "left a fresh perspective on the homepage concept",
+      "time": "12 minutes ago",
+      "icon": "reviewer"
+    },
+    {
+      "actor": "Builder",
+      "text": "shared Homepage concept · v3",
+      "time": "28 minutes ago",
+      "icon": "builder"
+    },
+    {
+      "actor": "Maya",
+      "text": "added a little context to website-refresh",
+      "time": "43 minutes ago",
+      "icon": "human"
+    },
+    {
+      "actor": "Alex",
+      "text": "created a clear starting point for the team",
+      "time": "1 hour ago",
+      "icon": "human"
+    }
+  ],
+  "views": {
+    "overview": {
+      "title": "Your workspace, in flow.",
+      "description": "A clear view of the work and the people moving it forward."
+    },
+    "rooms": {
+      "title": "Good work starts with a conversation.",
+      "description": "The context, the ideas, and the people behind the project."
+    },
+    "board": {
+      "title": "A little structure. A lot of flow.",
+      "description": "Give every idea a clear place and a thoughtful next step."
+    },
+    "agents": {
+      "title": "Meet your other teammates.",
+      "description": "Clear roles, shared context, and humans at the helm."
+    },
+    "approvals": {
+      "title": "The next step is yours.",
+      "description": "A fresh perspective. A clear version. A human decision."
+    },
+    "artifacts": {
+      "title": "The work, brought together.",
+      "description": "Every deliverable has a version and a story."
+    },
+    "knowledge": {
+      "title": "A shared place for what matters.",
+      "description": "The brief, the references, and the context that keeps everyone aligned."
+    },
+    "activity": {
+      "title": "A clearer picture of progress.",
+      "description": "The small steps that move your shared work forward."
+    },
+    "settings": {
+      "title": "Make a little space your own.",
+      "description": "A few thoughtful preferences for your workspace workspace."
+    }
+  },
+  "labels": {
+    "focus": "IN THE SPOTLIGHT",
+    "focusTitle": "A fresh perspective for Northstar.",
+    "focusDescription": "The homepage concept is ready for a thoughtful second look.",
+    "reviewCta": "Review the concept",
+    "team": "YOUR PEOPLE + AGENTS",
+    "moving": "Moving forward",
+    "needsYou": "Needs your perspective",
+    "completed": "Thoughtfully finished",
+    "inbox": "The next good thing",
+    "sources": "SHARED CONTEXT",
+    "scope": "Visibility",
+    "capabilities": "WHAT I CAN HELP WITH",
+    "boundary": "A CLEAR BOUNDARY",
+    "assignment": "ASSIGNMENT",
+    "allReviewed": "A clear inbox. A little more flow.",
+    "allReviewedDescription": "No deliverables are waiting for a decision in this workspace.",
+    "artifactReview": "Review this version",
+    "sampleEvidence": "review checklist",
+    "reportEvidence": "Versioned delivery summary",
+    "thread": "THE CONVERSATION",
+    "context": "PROJECT CONTEXT",
+    "people": "Alex, Maya + 2 agents",
+    "online": "workspace members",
+    "notPublished": "No external release",
+    "clientStep": "01 · Client content approval",
+    "developerStep": "02 · Developer release approval",
+    "preferences": "YOUR WORKSPACE, YOUR WAY",
+    "previewOnly": "Preferences apply to this workspace only.",
+    "resetDescription": "Start fresh with the original workspace content. Changes in this tab will be reset.",
+    "reportFile": "synqharbor-task-report.txt",
+    "sourceFooter": "Project context · changes stay in this tab",
+    "taskCreatedDescription": "A new idea added to your shared workspace workspace.",
+    "taskCreatedCriteria": "Agree a clear outcome with your team",
+    "taskType": "New idea",
+    "taskCreatedTag": "Your idea",
+    "statusCompleteRequiresApproval": "Finish the content and release approvals before marking this review complete."
+  },
+  "timezones": ["Asia/Dhaka", "UTC", "Europe/London", "America/New_York"]
+}

@@ -1,0 +1,317 @@
+{
+  "brand": "SynqHarbor",
+  "product": "SynqHarbor AI",
+  "tagline": "One workspace. Human-led. Agent-powered.",
+  "description": "A calmer place for people and AI agents to do their best work. Explore the SynqHarbor collaboration workspace.",
+  "navigation": [
+    {
+      "label": "Product",
+      "href": "/product/"
+    },
+    {
+      "label": "Solutions",
+      "href": "/solutions/"
+    },
+    {
+      "label": "Documentation",
+      "href": "/docs/"
+    },
+    {
+      "label": "About",
+      "href": "/about/"
+    }
+  ],
+  "hero": {
+    "imageAlt": "Sculptural titanium harbor pavilion above a calm midnight ocean",
+    "eyebrow": "A NEW WAY TO WORK, TOGETHER",
+    "title": ["Great minds.", "One harbor."],
+    "description": "Your people. Your agents. Your next big idea. Bring them into one beautifully connected workspace—and move from conversation to creation.",
+    "primary": "Explore the workspace",
+    "secondary": "See how it flows",
+    "note": "Human-led. Agent-powered. Entirely yours.",
+    "floating": "A little more flow. A lot less friction.",
+    "caption": "A place for good ideas to become great work.",
+    "index": "01 / THE SHARED WORKSPACE"
+  },
+  "principles": [
+    "People + agents",
+    "Shared context",
+    "Thoughtful approvals",
+    "Work you can see"
+  ],
+  "platform": {
+    "eyebrow": "LESS SCATTERED. MORE CONNECTED.",
+    "title": "Everything in its place.",
+    "italic": "Everyone in their flow.",
+    "description": "Conversations, tasks, and the work itself. Finally, a shared space that connects the dots without adding to the noise.",
+    "tabs": ["Your workspace", "Your workflow", "Your agents"],
+    "link": "Take a look around",
+    "previewLabel": "Interactive workspace"
+  },
+  "workflow": {
+    "eyebrow": "FROM A SPARK TO SOMETHING REAL",
+    "title": "Good work has a rhythm.",
+    "description": "Make space for the idea. Give it a clear direction. Let the right people and agents move it forward.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Bring the idea.",
+        "description": "Start a conversation, share the context, and decide what a great result looks like.",
+        "label": "A clear starting point",
+        "icon": "message"
+      },
+      {
+        "number": "02",
+        "title": "Find your flow.",
+        "description": "Give your Builder a focused task. Keep the work, decisions, and progress in one shared place.",
+        "label": "People + agents, in sync",
+        "icon": "sparkles"
+      },
+      {
+        "number": "03",
+        "title": "Make it matter.",
+        "description": "Review the result. Check the evidence. Give the right people the final say.",
+        "label": "A thoughtful finish",
+        "icon": "check"
+      }
+    ]
+  },
+  "agents": {
+    "eyebrow": "MEET YOUR OTHER TEAMMATES",
+    "title": "Extra hands.",
+    "italic": "Your direction.",
+    "description": "A Builder to move things forward. A Reviewer to take a closer look. You set the course—and stay in the conversation.",
+    "cards": [
+      {
+        "name": "Builder",
+        "role": "THE MAKER",
+        "description": "Turns a clear brief into a first draft, a useful artifact, or a thoughtful code change.",
+        "symbol": "✳",
+        "className": "builder"
+      },
+      {
+        "name": "Reviewer",
+        "role": "THE SECOND LOOK",
+        "description": "Checks the work against the brief. Finds the gaps. Brings a fresh perspective.",
+        "symbol": "◎",
+        "className": "reviewer"
+      }
+    ],
+    "note": "Different roles. One shared direction."
+  },
+  "workflows": {
+    "eyebrow": "A HARBOR FOR YOUR KIND OF WORK",
+    "title": "One space.",
+    "italic": "So many possibilities.",
+    "items": [
+      {
+        "id": "delivery",
+        "label": "Client delivery",
+        "title": "From a good brief to a great handoff.",
+        "description": "Bring your client into the process. Turn feedback into focused tasks, review together, and keep every deliverable connected to its story.",
+        "tag": "FOR DEVELOPERS & AGENCIES",
+        "steps": [
+          "Client brief",
+          "Build & review",
+          "Shared artifact",
+          "Human approval"
+        ]
+      },
+      {
+        "id": "operations",
+        "label": "Team operations",
+        "title": "Keep the moving parts moving.",
+        "description": "Find the commitments in your meeting notes. Connect them to the work. Make the next step clear without another status meeting.",
+        "tag": "FOR PEOPLE WHO KEEP THINGS RUNNING",
+        "steps": [
+          "Meeting notes",
+          "Clear commitments",
+          "Shared ownership",
+          "Follow-up draft"
+        ]
+      },
+      {
+        "id": "content",
+        "label": "Content & ideas",
+        "title": "Give your next idea room to grow.",
+        "description": "Keep the brief, research, drafts, and feedback in one place. Build a creative rhythm your whole team can follow.",
+        "tag": "FOR CREATIVE TEAMS",
+        "steps": [
+          "Creative brief",
+          "Research & ideas",
+          "Thoughtful drafts",
+          "Team review"
+        ]
+      }
+    ]
+  },
+  "control": {
+    "eyebrow": "MORE POSSIBILITY. SAME PEACE OF MIND.",
+    "title": "You’re at the helm.",
+    "description": "Good collaboration needs clear boundaries. Keep the context scoped, the work visible, and the important decisions in human hands.",
+    "items": [
+      {
+        "title": "Your space, your boundaries.",
+        "description": "Separate workspaces and clear permissions are part of the platform’s design.",
+        "icon": "lock"
+      },
+      {
+        "title": "A clear trail of work.",
+        "description": "Bring artifacts, versions, reviews, and decisions together around the task.",
+        "icon": "layers"
+      },
+      {
+        "title": "Humans have the final say.",
+        "description": "Review the outcome and approve the next step. A conversation is never a release permission.",
+        "icon": "shield"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "A FEW THINGS YOU MIGHT BE WONDERING",
+    "title": "Good questions.",
+    "items": [
+      {
+        "question": "What is available today?",
+        "answer": "The multipage website and interactive workspace screens are available. Explore rooms, tasks, agent roles, artifacts and approval interactions. Workspace changes stay in the current browser tab."
+      },
+      {
+        "question": "How do agents connect?",
+        "answer": "Agent execution follows the published engineering roadmap. The current website does not connect provider accounts or run code. The planned adapters keep runtime, permissions and model providers separate."
+      },
+      {
+        "question": "Who is SynqHarbor being built for?",
+        "answer": "Small software and automation agencies, developers working with clients, operations teams, and creative teams who want people and agents to work from the same context."
+      },
+      {
+        "question": "Can I host the platform myself?",
+        "answer": "Yes. The current website builds to static files and can be hosted on your own infrastructure. The self-hosting guide explains installation, configuration, upgrades and rollback. The authenticated platform follows the roadmap."
+      },
+      {
+        "question": "Does approving a result publish anything?",
+        "answer": "Approvals in the current workspace update browser-tab state. The future backend must bind authorization to exact artifact versions and separate client content approval from developer release authority."
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "MAKE ROOM FOR WHAT’S NEXT",
+    "title": "Great work starts",
+    "italic": "with together.",
+    "description": "Come on in. Find your people. Meet your agents. See what a little more connection can do.",
+    "cta": "Step into the workspace"
+  },
+  "footer": {
+    "note": "Designed for the way we work next.",
+    "status": "Human-led. Open source.",
+    "copyright": "© 2026 SynqHarbor AI",
+    "back": "Back to the top",
+    "maintainer": "Maintained by Zahidul Islam"
+  },
+  "ui": {
+    "downloadOverview": "Download the 12-page overview",
+    "workspaceNavigation": "Workspace",
+    "mobileNavigation": "Mobile",
+    "footerNavigation": "Footer",
+    "menu": "Open navigation",
+    "closeMenu": "Close navigation",
+    "pause": "Pause ambient motion",
+    "play": "Play ambient motion",
+    "workspace": "Open workspace",
+    "skip": "Skip to content",
+    "preview": "Workspace",
+    "sample": "Shared context",
+    "newTask": "New task",
+    "search": "Search this workspace",
+    "searchPlaceholder": "Find a task, artifact, or idea…",
+    "settings": "Workspace settings",
+    "close": "Close dialog",
+    "cancel": "Cancel",
+    "create": "Create task",
+    "taskTitle": "What would you like to work on?",
+    "taskTitlePlaceholder": "Give your next idea a clear starting point",
+    "project": "Project",
+    "priority": "Priority",
+    "all": "All work",
+    "empty": "A little breathing room.",
+    "emptyDescription": "No tasks match your search. Try another word or bring a new idea.",
+    "newTaskDescription": "Add a task to your board. Changes stay in this browser tab.",
+    "created": "Your new task is on the board.",
+    "saved": "Workspace preferences updated.",
+    "approvedClient": "Content approved. Developer review is the next step.",
+    "approvedDeveloper": "Release decision recorded in this tab. Publishing follows the roadmap.",
+    "reviewFirst": "Approve the content before developer release.",
+    "updated": "Task status updated.",
+    "messageSent": "Your message was added to the conversation.",
+    "required": "Add a clear task title before continuing.",
+    "demoNote": "Workspace interactions · changes stay in this tab",
+    "home": "Back to SynqHarbor",
+    "viewAll": "View all work",
+    "inspect": "Inspect artifact",
+    "filter": "Filter by project",
+    "new": "New",
+    "markReviewed": "Mark reviewed",
+    "reviewed": "Review recorded.",
+    "download": "Download task report",
+    "downloaded": "Task report downloaded.",
+    "command": "Search",
+    "more": "View task",
+    "mobileNav": "Open workspace navigation",
+    "reset": "Reset workspace",
+    "resetDone": "The workspace is back to its starting point.",
+    "return": "Return to website",
+    "theme": "Appearance",
+    "themeDescription": "Set the tone for your workspace.",
+    "dark": "Midnight",
+    "light": "Daylight",
+    "reducedMotion": "Calmer motion",
+    "reducedMotionDescription": "Keep animations subtle in the workspace.",
+    "notifications": "Action confirmations",
+    "notificationsDescription": "Show a small confirmation when you change something.",
+    "timezone": "Workspace timezone",
+    "save": "Save preferences",
+    "clientApproval": "Approve content",
+    "developerApproval": "Approve release",
+    "pendingClient": "Awaiting client approval",
+    "pendingDeveloper": "Awaiting developer release",
+    "approvalComplete": "Approved",
+    "taskDetails": "Task details",
+    "acceptance": "What good looks like",
+    "evidence": "Evidence & deliverables",
+    "activity": "Recent activity",
+    "status": "Status",
+    "owner": "Owner",
+    "version": "Version",
+    "review": "Review",
+    "role": "Role",
+    "send": "Send message",
+    "messagePlaceholder": "Add to the conversation…",
+    "title": "Title",
+    "previous": "Previous",
+    "next": "Next",
+    "progress": "Workflow progress",
+    "createdBy": "Created by you",
+    "clientLabel": "Client",
+    "developerLabel": "Developer",
+    "viewBoard": "View board",
+    "sampleReportTitle": "SynqHarbor task report",
+    "sampleReportNote": "Created from current browser-tab workspace state. This report is not a production action receipt.",
+    "mainNavigation": "Main",
+    "documentation": "Documentation",
+    "onThisPage": "On this page",
+    "contactMaintainer": "Contact the maintainer",
+    "openIssue": "Open a project issue",
+    "nextStep": "Keep exploring",
+    "sourceCode": "View the source",
+    "roadmap": "Explore the roadmap",
+    "installCommands": "npm ci\nnpm run build\n# Serve out/ with your static web server"
+  },
+  "status": {
+    "idle": "Website connection",
+    "checking": "Checking the connection…",
+    "available": "Website reachable",
+    "unreachable": "Connection could not be verified",
+    "checked": "Last checked:",
+    "note": "Run a check from your current browser connection.",
+    "button": "Check availability"
+  }
+}

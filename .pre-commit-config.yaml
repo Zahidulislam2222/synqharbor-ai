@@ -1,0 +1,23 @@
+# Derived from the existing machine security template; entries target native WSL.
+# Tool versions are recorded in .security-tools-requirements.txt.
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks-staged
+        name: gitleaks (secrets in staged diff)
+        entry: gitleaks git --pre-commit --staged --redact --no-banner --verbose
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: bandit
+        name: bandit (Python SAST, medium+ severity)
+        entry: .tools/security/bin/bandit -q -ll
+        language: system
+        types: [python]
+
+      - id: semgrep
+        name: semgrep p/security-audit (native WSL)
+        entry: semgrep scan --error --config p/security-audit --metrics=off
+        language: system
+        types: [text]

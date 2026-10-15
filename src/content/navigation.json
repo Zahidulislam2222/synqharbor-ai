@@ -1,0 +1,40 @@
+[
+  {
+    "title": "Product",
+    "links": [
+      ["Product", "/product/"],
+      ["Features", "/features/"],
+      ["Solutions", "/solutions/"],
+      ["Agents", "/agents/"],
+      ["Integrations", "/integrations/"]
+    ]
+  },
+  {
+    "title": "Build",
+    "links": [
+      ["Documentation", "/docs/"],
+      ["Self-hosting", "/self-hosting/"],
+      ["Roadmap", "/roadmap/"],
+      ["Service status", "/status/"],
+      ["Source code", "repository"]
+    ]
+  },
+  {
+    "title": "Company",
+    "links": [
+      ["About", "/about/"],
+      ["Contact", "/contact/"],
+      ["Security", "/security/"],
+      ["Accessibility", "/accessibility/"]
+    ]
+  },
+  {
+    "title": "Legal",
+    "links": [
+      ["Privacy", "/privacy/"],
+      ["Terms of use", "/terms/"],
+      ["Acceptable use", "/acceptable-use/"],
+      ["Cookies", "/cookies/"]
+    ]
+  }
+]
