@@ -13,7 +13,7 @@ export const ui = {
     heroMobile: "/media/harbor-mobile.webp",
     video: "/media/harbor-loop.mp4",
   },
-  routes: { home: "/", workspace: "/workspace/" },
+  routes: { home: "/", workspace: "/control/" },
   links: {
     repository: "https://github.com/Zahidulislam2222/synqharbor-ai",
     maintainer: "https://github.com/Zahidulislam2222",

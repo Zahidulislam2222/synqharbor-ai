@@ -3,6 +3,7 @@
 /PROJECT-DOSSIER.md
 /DEFECT-LOG.md
 /memory/
+/study/
 /.claude/settings.local.json
 
 # Local environment and authentication material
@@ -38,8 +39,8 @@ id_ed25519
 /backend/.pytest_cache/
 /backend/.ruff_cache/
 /backend/.mypy_cache/
-# Unpublished local backend work; excluded by the owner's narrowed release scope.
-/backend/
+# Backend implementation authorized 2026-10-18; runtime data remains private.
+/backend/runtime/
 /my-project-view/.doc-id
 /my-project-view/*.pdf
 /venv/

@@ -5,10 +5,15 @@ it does not replace, weaken, or duplicate the shared global instruction files.
 
 ## Current scope
 
-The current release is the professional multipage static website, browser-local
-workspace interface, public documentation and GitHub publication. Backend, account,
-provider and execution capabilities remain roadmap work. Do not add a new subsystem
-as an incidental website change. The build plan remains the future engineering roadmap.
+On 2026-10-18 the owner explicitly authorized safely deploying and publishing the
+frontend and backend, updating all relevant public documentation, and pushing to
+the existing GitHub repository under Zahidul Islam. The bounded drafting/review
+and Python coding/test/approved-Git workflows are implemented locally. Deploy them
+on the existing host with isolated project services and verify real release flows.
+Document future 1M+ simultaneous users and 99% availability as engineering targets.
+Avoid demo, sample and prototype labels in public prose. New charges require the
+global money warning and fresh authorization. Check the existing Google Doc only
+after production and GitHub verification; updating that Doc/PDF is not inferred.
 
 Use the existing host for the authorized deployment. New service charges are not
 part of this release. Verify live drift, capacity and the intended scope first.

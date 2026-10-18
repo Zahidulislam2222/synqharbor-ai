@@ -1,0 +1,59 @@
+# Render placeholders from a protected project-specific deployment environment.
+# Images must be digest-pinned. These are independent project services.
+services:
+  database:
+    image: ${POSTGRES_IMAGE}
+    user: "999:999"
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/database_admin
+      PGDATA: /var/lib/postgresql/18/docker
+    secrets: [database_admin]
+    volumes: ["${STATE_ROOT}/postgres:/var/lib/postgresql"]
+    networks:
+      private:
+        ipv4_address: ${DATABASE_ADDRESS}
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: ${DATABASE_MEMORY}
+    cpus: ${DATABASE_CPUS}
+    pids_limit: ${DATABASE_PIDS}
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "2"}
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+  inference:
+    image: ${OLLAMA_IMAGE}
+    restart: unless-stopped
+    environment:
+      OLLAMA_HOST: 0.0.0.0:11434
+      OLLAMA_NO_CLOUD: "1"
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_NUM_PARALLEL: "1"
+      OLLAMA_MAX_QUEUE: "4"
+      OLLAMA_KEEP_ALIVE: 5m
+    volumes: ["${STATE_ROOT}/models:/root/.ollama"]
+    networks:
+      private:
+        ipv4_address: ${INFERENCE_ADDRESS}
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: ${INFERENCE_MEMORY}
+    cpus: ${INFERENCE_CPUS}
+    pids_limit: ${INFERENCE_PIDS}
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "2"}
+networks:
+  private:
+    internal: true
+    ipam:
+      config:
+        - subnet: ${NETWORK_SUBNET}
+secrets:
+  database_admin:
+    file: ${ADMIN_PASSWORD_FILE}

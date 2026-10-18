@@ -1,0 +1,14 @@
+{
+  "normalize-tags": {
+    "name": "Normalize a list of tags",
+    "specification": "Implement solve(value), where value is a list of strings. Strip whitespace, lowercase each tag, remove empty tags and duplicates, and return tags in their original first-occurrence order. The input is always a list of strings. Return only the normalized list.",
+    "source": "def solve(value):\n    return value\n",
+    "output_path": "solution.py",
+    "cases": [
+      {"input": [" Python ", "AI", "python", "", " ai "], "expected": ["python", "ai"]},
+      {"input": [], "expected": []},
+      {"input": [" A", "b ", "a", "C", " B", "  "], "expected": ["a", "b", "c"]},
+      {"input": ["CAFÉ", " café ", "日本語"], "expected": ["café", "日本語"]}
+    ]
+  }
+}

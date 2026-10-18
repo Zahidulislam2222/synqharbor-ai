@@ -1,5 +1,6 @@
 """Render the public overview with explicit pagination and verify every page."""
 import argparse
+import json
 from pathlib import Path
 import re
 import unicodedata
@@ -35,7 +36,8 @@ def main() -> None:
         if remaining < 0 or title_room < 0:
             raise ValueError("Page text overflow: " + number)
         page.draw_line((44, 791), (551, 791), color=(0.8, 0.84, 0.76), width=0.5)
-        page.insert_text((44, 809), "Zahidul Islam | Public technical overview | 0.2.0", fontsize=8, color=(0.35, 0.4, 0.31))
+        version = json.loads((Path(__file__).resolve().parents[1] / "package.json").read_text())["version"]
+        page.insert_text((44, 809), f"Zahidul Islam | Public technical overview | {version}", fontsize=8, color=(0.35, 0.4, 0.31))
         page.insert_text((503, 809), number + " / 12", fontsize=8, color=(0.35, 0.4, 0.31))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     doc.set_metadata({"title": "SynqHarbor AI - Technical Overview", "author": "Zahidul Islam", "subject": "Architecture, security, operations and scalable platform roadmap"})

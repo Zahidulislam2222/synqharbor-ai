@@ -1,6 +1,11 @@
 {
   "workspace": {
-    "participants": ["Alex Morgan", "Maya Chen", "Builder", "Reviewer"],
+    "participants": [
+      "Alex Morgan",
+      "Maya Chen",
+      "Builder",
+      "Reviewer"
+    ],
     "name": "Atelier workspace",
     "initials": "A",
     "plan": "A little space for big ideas",
@@ -55,8 +60,16 @@
       "icon": "activity"
     }
   ],
-  "projects": ["Northstar website", "Studio operations", "Autumn campaign"],
-  "priorities": ["Normal", "High", "Low"],
+  "projects": [
+    "Northstar website",
+    "Studio operations",
+    "Autumn campaign"
+  ],
+  "priorities": [
+    "Normal",
+    "High",
+    "Low"
+  ],
   "statuses": [
     {
       "id": "planned",
@@ -94,7 +107,10 @@
         "All interactive elements have visible focus states",
         "The client reviews the exact artifact version"
       ],
-      "tags": ["Website", "Client delivery"],
+      "tags": [
+        "Website",
+        "Client delivery"
+      ],
       "version": 3,
       "clientApproved": false,
       "developerApproved": false
@@ -112,7 +128,9 @@
         "Each commitment links to a source",
         "Every next step has a named owner"
       ],
-      "tags": ["Operations"],
+      "tags": [
+        "Operations"
+      ],
       "version": 1,
       "clientApproved": false,
       "developerApproved": false
@@ -126,8 +144,13 @@
       "type": "Creative",
       "priority": "Normal",
       "description": "Collect a few considered directions for a fictional autumn campaign.",
-      "criteria": ["Three distinct ideas with a clear audience"],
-      "tags": ["Creative", "Research"],
+      "criteria": [
+        "Three distinct ideas with a clear audience"
+      ],
+      "tags": [
+        "Creative",
+        "Research"
+      ],
       "version": 1,
       "clientApproved": false,
       "developerApproved": false
@@ -141,8 +164,12 @@
       "type": "Review",
       "priority": "Normal",
       "description": "review of tap targets, focus order, and navigation hierarchy.",
-      "criteria": ["Touch and keyboard navigation are covered"],
-      "tags": ["Review"],
+      "criteria": [
+        "Touch and keyboard navigation are covered"
+      ],
+      "tags": [
+        "Review"
+      ],
       "version": 2,
       "clientApproved": true,
       "developerApproved": true
@@ -156,8 +183,12 @@
       "type": "Content",
       "priority": "Low",
       "description": "Organize the tone of voice into a useful reference for the team.",
-      "criteria": ["Clear voice principles and examples"],
-      "tags": ["Content"],
+      "criteria": [
+        "Clear voice principles and examples"
+      ],
+      "tags": [
+        "Content"
+      ],
       "version": 1,
       "clientApproved": false,
       "developerApproved": false
@@ -171,8 +202,12 @@
       "type": "Operations",
       "priority": "Normal",
       "description": "Outline a thoughtful handoff with the right evidence and next steps.",
-      "criteria": ["Deliverables and decisions are connected"],
-      "tags": ["Client delivery"],
+      "criteria": [
+        "Deliverables and decisions are connected"
+      ],
+      "tags": [
+        "Client delivery"
+      ],
       "version": 1,
       "clientApproved": false,
       "developerApproved": false
@@ -400,5 +435,10 @@
     "taskCreatedTag": "Your idea",
     "statusCompleteRequiresApproval": "Finish the content and release approvals before marking this review complete."
   },
-  "timezones": ["Asia/Dhaka", "UTC", "Europe/London", "America/New_York"]
+  "timezones": [
+    "Asia/Dhaka",
+    "UTC",
+    "Europe/London",
+    "America/New_York"
+  ]
 }

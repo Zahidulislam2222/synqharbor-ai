@@ -14,9 +14,9 @@ python scripts/render-overview.py docs/technical-overview.md public/documents/Sy
 | Guide | Covers |
 |---|---|
 | [Technical overview](technical-overview.md) | Product, ownership, architecture, operations and long-term direction |
-| [Architecture](architecture.md) | Current static deployment and planned control-plane/execution boundaries |
+| [Architecture](architecture.md) | Frontend, authenticated control plane and protected execution boundaries |
 | [Self-hosting](self-hosting.md) | Installation, public configuration, deployment, validation and rollback |
-| [API roadmap](api.md) | Planned contracts; no deployed collaboration API is claimed |
+| [API contract](api.md) | Authenticated v1 contract, sessions, authorization and bounded resources |
 | [Security architecture](security.md) | Identity, permissions, artifacts, isolated execution and verification |
 | [Privacy](privacy.md) | Actual website processing and future responsibilities |
 | [Terms](terms.md), [Acceptable use](acceptable-use.md), [Cookies](cookies.md) | Website/software use and browser behavior |
@@ -28,8 +28,11 @@ python scripts/render-overview.py docs/technical-overview.md public/documents/Sy
 | [Cloud costs](cloud-costs.md) | Existing-host startup and qualified AWS/GCP/Azure free surfaces |
 | [Operations](operations.md) | Local-first deployment, parity, monitoring and recovery |
 | [Roadmap](roadmap.md) | Ten phases, parallel disciplines and deployment gates |
+| [Configuration](configuration.md) | Typed settings, secrets and maintained content ownership |
+| [Legal readiness](legal-readiness.md) | Applicable US/EU privacy, sector and AI obligations |
+| [Release readiness](readiness.md) | Verified, unverified and deferred requirements, ownership and consequences |
+| [Release checklist](release-checklist.md) | Verification, rollback and safe publication gates |
 | [Accessibility](accessibility.md) | WCAG target, verification boundaries and feedback |
 
-Publication excludes credentials, private project records and unshipped backend
-work. Source-license terms are in [LICENSE](../LICENSE); third-party notices are
+Publication excludes credentials, private project records and private deployment data. Source-license terms are in [LICENSE](../LICENSE); third-party notices are
 in [THIRD-PARTY-NOTICES.md](../THIRD-PARTY-NOTICES.md).

@@ -1,0 +1,46 @@
+{
+  "root": "/srv/apps/synqharbor-ai",
+  "release": "release-id",
+  "api_port": 8000,
+  "database_port": 55432,
+  "inference_port": 11435,
+  "postgres_image": "postgres@sha256:5a5a84b19854a9ffaa54082c166ff4ec27473a361e496e5ea167f298f2da9722",
+  "ollama_image": "ollama/ollama@sha256:adca95a12c2b386a8f9a995e7fa0600e187e3323b5e5522f5a6c3b1ec73eff99",
+  "api_user": "synqharbor-ai-api",
+  "worker_user": "synqharbor-ai-worker",
+  "limits": {
+    "api": {
+      "memory": "384M",
+      "cpu": "100%",
+      "tasks": "64"
+    },
+    "worker": {
+      "memory": "768M",
+      "cpu": "200%",
+      "tasks": "128"
+    }
+  },
+  "network_subnet": "172.30.0.0/28",
+  "containers": {
+    "database": {
+      "memory": "768m",
+      "cpus": 1.0,
+      "pids": 128
+    },
+    "inference": {
+      "memory": "8g",
+      "cpus": 2.0,
+      "pids": 256
+    }
+  },
+  "proxy_binary": "/usr/lib/systemd/systemd-socket-proxyd",
+  "models": {
+    "builder": "qwen3:1.7b",
+    "code_builder": "qwen2.5-coder:7b",
+    "reviewer": "qwen2.5-coder:7b"
+  },
+  "git_author_name": "Zahidul Islam",
+  "git_author_email": "195873884+Zahidulislam2222@users.noreply.github.com",
+  "readiness_timeout": 30,
+  "readiness_poll": 1
+}

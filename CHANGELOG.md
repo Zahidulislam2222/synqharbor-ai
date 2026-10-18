@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-10-18
+
+- Added the authenticated `/control/` application and versioned FastAPI contract.
+- Added durable PostgreSQL workflows, scoped sources, separate model review and protected Python execution.
+- Added distinct human approvals, operator repository grants, atomic Git delivery and downloadable evidence.
+- Added private-session request budgets for reverse-proxy deployments and operator-controlled enrollment.
+- Added frontend/backend service templates and expanded setup, security, legal, operations, reliability and future capacity documentation.
+
 ## 0.2.0 — 2026-10-16
 
 - Added 23 professional product, company, legal and engineering routes.

@@ -26,12 +26,12 @@
         ]
       },
       {
-        "title": "Available today. Built for what follows.",
-        "body": "The current release delivers the multipage website and interactive workspace screens. Workspace changes stay in the current browser tab. Accounts, server persistence and agent execution are scheduled engineering milestones.",
+        "title": "Authenticated work, with evidence.",
+        "body": "Create saved workspaces, select authorized source context and run bounded AI tasks. Review immutable artifacts and protected test results before two distinct authorized accounts approve delivery.",
         "items": [
-          "Explore the workspace interaction design",
-          "Read the public technical documentation",
-          "Follow the ten-phase delivery roadmap"
+          "Saved accounts and workspace records",
+          "Cited drafting and protected Python tests",
+          "Exact approvals and recorded delivery receipts"
         ]
       }
     ],
@@ -66,11 +66,11 @@
       },
       {
         "title": "A platform in stages",
-        "body": "The implementation roadmap adds authenticated persistence, durable runs, scoped retrieval and connectors before expanding autonomy.",
+        "body": "The release includes authenticated collaboration and bounded execution. The roadmap extends secure tenancy, operator controls, connectors, reliability and qualified capacity toward 1M+ simultaneous users.",
         "items": [
-          "Current: browser-local workspace interactions",
-          "Next: authenticated application foundation",
-          "Later: isolated execution and operational automation"
+          "Current: authenticated workspaces and durable runs",
+          "Current: isolated Python tests and approved Git delivery",
+          "Future: broader integrations and qualified scale"
         ]
       }
     ],
@@ -144,7 +144,7 @@
       },
       {
         "title": "Execution availability",
-        "body": "Agent profiles are part of the current interface. Provider execution, subscriptions, coding runners and scheduled agent jobs are not connected in this website release.",
+        "body": "Builder and Reviewer run through separate local model contexts. Drafts cite selected sources; approved Python profiles run protected tests. Durable evidence and distinct human approvals govern delivery. Scheduled jobs and general connectors remain roadmap work.",
         "items": [
           "API-first adapter qualification is planned",
           "No provider credentials are sent to the browser",
@@ -405,34 +405,27 @@
     "eyebrow": "TRUST BEGINS WITH CLEAR BOUNDARIES.",
     "title": "Visible controls.",
     "accent": "Explicit responsibility.",
-    "description": "Security documentation describes current website controls and the requirements that govern the future authenticated platform.",
+    "description": "Opaque server-side sessions, Argon2 password hashing, secure production cookies, session rotation/revocation, exact Origin and CSRF checks protect API mutations. Workspace membership and role authorization precede protected object",
     "sections": [
       {
-        "title": "Current website controls",
-        "body": "The release uses self-hosted assets, HTTPS, a restrictive script policy, dependency scanning and a hardened static server. Secrets and private project records are excluded from publication.",
-        "items": [
-          "Content Security Policy generated from release scripts",
-          "No provider credentials in browser code",
-          "Nonroot, read-only, resource-bounded serving"
-        ]
+        "title": "Implemented controls",
+        "body": "Opaque server-side sessions, Argon2 password hashing, secure production cookies, session rotation/revocation, exact Origin and CSRF checks protect API mutations. Workspace membership and role authorization precede protected object access. Private API responses use Cache-Control: no-store; public caches must never store account or workspace responses. Task revisions and artifact hashes bind approvals to exact content. Two distinct authorized accounts approve client and developer decisions. Repository execution requires an operator-created workspace/target/profile grant. Revoked members, sources, grants and stopped workspaces cannot authorize later publication. Agent instructions and retrieved documents never grant permissions. The web service has no code execution route. Workers use pinned local model digests, structured responses, bounded correction rounds and separate review contexts. Protected test answers remain outside the model and guest. Rootless gVisor uses a read-only minimal rootfs, no guest network, no host credentials, fresh case processes and CPU/memory/process/output/time limits. Candidate output is untrusted data.",
+        "items": []
       },
       {
-        "title": "Future application requirements",
-        "body": "Every resource access must pass tenant and role authorization. Sessions, CSRF, grants, immutable approvals and isolated workers are engineering requirements before real workflow execution.",
-        "items": [
-          "OWASP ASVS control mapping",
-          "Independent approval actors and exact versions",
-          "Bounded tools and revocable connector grants"
-        ]
+        "title": "Main threats and responses",
+        "body": " This release requires explicit operator configuration, bounded permissions and verification against the intended operating environment.",
+        "items": []
       },
       {
-        "title": "Report a vulnerability",
-        "body": "Follow SECURITY.md in the repository. Private vulnerability reporting is the preferred channel; do not test unrelated infrastructure or access other people’s data.",
-        "items": [
-          "Report affected version and reproduction",
-          "Avoid denial-of-service testing",
-          "Coordinate disclosure and verification"
-        ]
+        "title": "Operator requirements",
+        "body": "Use least-privilege service accounts and database roles, pinned SSH host keys, private database/inference listeners, maintained TLS, bounded logs, verified encrypted backups and tested restoration. Do not expose Ollama, PostgreSQL, Docker sockets or runner state to the Internet. Keep runtime secrets outside source, browser bundles, logs and command arguments. Restrict operator access using MFA at the access provider where available; application administrator MFA remains a roadmap item. Application-level authorization is implemented; PostgreSQL tenant RLS is a planned additional defense. Disk/volume encryption, independent penetration testing, supply-chain attestation, automated privacy erasure and continuous capacity testing require deployment-specific qualification. No scanner result establishes blanket security certification.",
+        "items": []
+      },
+      {
+        "title": "Vulnerability handling",
+        "body": "Use the private reporting route in SECURITY.md. Do not post credentials, personal information or exploit details in public issues. Assess impact, contain/revoke affected access, preserve redacted evidence, patch, verify and publish an appropriate advisory. Keep incident chronology and corrective actions. References: OWASP session management, multi-tenant security, gVisor production guide.",
+        "items": []
       }
     ],
     "layout": "article",
@@ -444,35 +437,22 @@
     "eyebrow": "DATA RESPONSIBILITIES.",
     "title": "Know what is handled.",
     "accent": "Know who controls it.",
-    "description": "This policy describes the current website. A future authenticated service will publish an updated processing schedule before accepting account or client-workspace data.",
+    "description": "Passwords are hashed; plaintext passwords are not stored by the application. Source documents and candidate code can contain personal information, so users must provide only authorized, necessary content. The local model adapter s",
     "sections": [
       {
-        "title": "Current website information",
-        "body": "The website does not provide account registration, analytics advertising or an intake form. Workspace edits exist in browser-tab memory and disappear on reload.",
-        "items": [
-          "Static resources are requested from hosting and network providers",
-          "Network/security logs may contain IP, URL, timestamp and browser information",
-          "No workspace content is transmitted by the current interface"
-        ]
+        "title": "Data and purposes",
+        "body": "Passwords are hashed; plaintext passwords are not stored by the application. Source documents and candidate code can contain personal information, so users must provide only authorized, necessary content. The local model adapter sends no context to a paid/cloud inference endpoint. Model downloads and software updates contact their registries separately from task inference.",
+        "items": []
       },
       {
-        "title": "Hosting and third-party links",
-        "body": "The current deployment uses an existing Contabo server and Cloudflare delivery/security services. Their independent network processing is covered by their own policies. Following a GitHub link enters GitHub’s service.",
-        "items": [
-          "No advertising trackers are installed",
-          "No inference provider receives workspace content",
-          "The operator controls server access and log rotation",
-          "Server logs use capacity-based rotation; a fixed age-based retention limit is not currently verified"
-        ]
+        "title": "Providers, retention and rights",
+        "body": "The hosted website uses existing Contabo hosting and Cloudflare network delivery/security. GitHub hosts public source and feedback. Following third-party links uses those services under their own policies. Do not submit confidential or personal data in public issues. Configured sessions/invitations expire after 24h by default. Operators control account/workspace retention, access and backup expiry. SH_RETENTION_DAYS expresses policy configuration; automatic deletion of all workspace records is not implemented. Operators must enforce and document deletion/retention operationally, including audit/legal holds and backup expiry. Technical log rotation currently bounds volume; a fixed age-based retention guarantee requires deployment verification. Arrange a private channel through the maintainer profile for access, correction, export, deletion or privacy concerns. Verify the requester before disclosing data. Applicable rights, lawful basis, retention periods, processing locations and international transfers depend on the actual operator/customer arrangement. Do not enter regulated or sensitive customer data until that schedule and the re",
+        "items": []
       },
       {
-        "title": "Rights, retention and future processing",
-        "body": "Contact the maintainer through the contact page for a privacy concern. Retention, rights handling, processing roles and applicable law must be specified for each future hosted customer deployment.",
-        "items": [
-          "Self-host operators control their deployment data",
-          "Do not enter sensitive client content in public feedback",
-          "No jurisdiction-specific certification is claimed"
-        ]
+        "title": "Operator responsibilities",
+        "body": "Use the linked public documentation for deployment configuration, verification evidence, privacy responsibilities and the remaining engineering roadmap. Review changes before accepting customer data.",
+        "items": []
       }
     ],
     "layout": "article",
@@ -562,34 +542,22 @@
     "eyebrow": "A LIGHTER FOOTPRINT.",
     "title": "No tracking agenda.",
     "accent": "A clear browser policy.",
-    "description": "The current website does not install advertising, analytics or account-session cookies.",
+    "description": "Use the linked public documentation for deployment configuration, verification evidence, privacy responsibilities and the remaining engineering roadmap. Review changes before accepting customer data.",
     "sections": [
       {
-        "title": "Current behavior",
-        "body": "Appearance and workspace interactions live in the current page state. No account authentication or persistent workspace storage is provided by this release.",
-        "items": [
-          "No advertising cookies",
-          "No analytics cookies",
-          "No browser localStorage credentials"
-        ]
+        "title": "Operator responsibilities",
+        "body": "Use the linked public documentation for deployment configuration, verification evidence, privacy responsibilities and the remaining engineering roadmap. Review changes before accepting customer data.",
+        "items": []
       },
       {
-        "title": "Network services",
-        "body": "Hosting and security providers may process technical request information or apply security mechanisms. Their behavior can depend on their configuration and the request.",
-        "items": [
-          "Cloudflare supplies network delivery/security",
-          "External GitHub pages have their own policies",
-          "The website does not control third-party pages"
-        ]
+        "title": "Operator responsibilities",
+        "body": "Use the linked public documentation for deployment configuration, verification evidence, privacy responsibilities and the remaining engineering roadmap. Review changes before accepting customer data.",
+        "items": []
       },
       {
-        "title": "Future changes",
-        "body": "Authenticated platform sessions will require a documented secure cookie policy. Optional tracking would require its own assessment and consent handling where applicable.",
-        "items": [
-          "Host-only secure session design",
-          "HttpOnly and SameSite controls planned",
-          "Policy updated before capability changes"
-        ]
+        "title": "Operator responsibilities",
+        "body": "Use the linked public documentation for deployment configuration, verification evidence, privacy responsibilities and the remaining engineering roadmap. Review changes before accepting customer data.",
+        "items": []
       }
     ],
     "layout": "article",
@@ -679,21 +647,21 @@
     "eyebrow": "ENGINEERING DOCUMENTATION",
     "title": "A system with clear owners.",
     "accent": "",
-    "description": "Next.js exports static routes. React and Motion handle browser interactions. A hardened static server sits behind Caddy HTTPS and Cloudflare delivery. Browser workspace state does not leave the tab.",
+    "description": " This release requires explicit operator configuration, bounded permissions and verification against the intended operating environment.",
     "sections": [
       {
-        "title": "Current website",
-        "body": "Next.js exports static routes. React and Motion handle browser interactions. A hardened static server sits behind Caddy HTTPS and Cloudflare delivery. Browser workspace state does not leave the tab.",
+        "title": "Trust boundaries",
+        "body": " This release requires explicit operator configuration, bounded permissions and verification against the intended operating environment.",
         "items": []
       },
       {
-        "title": "Future control plane",
-        "body": "FastAPI and PostgreSQL own identities, membership, tasks, runs, artifacts, approvals, grants and an append-only application audit trail. A modular monolith keeps one authoritative task dispatcher.",
+        "title": "Durable work",
+        "body": "PostgreSQL owns run claims, leases, attempts, artifacts, approvals, audit events, delivery intents and receipts. Model calls occur outside database transactions. Fencing and revision checks prevent stale workers from publishing. Workspace stop, source/member revocation and repository grant changes serialize with publication. An acknowledged change prevents subsequent publication or waits for the bounded in-flight operation. Git preparation occurs in an isolated clone with installed hooks. Publication compares the expected reference atomically and uses the native index lock. An uncertain post-publication result stays reserved for read-only reconciliation. Dedicated operator-owned repositories must not be edited manually during installation.",
         "items": []
       },
       {
-        "title": "Execution boundary",
-        "body": "Outbound runners accept bounded assignments. Coding work runs in disposable isolated environments; the web server never executes arbitrary agent-generated commands. Tools enforce authorization independently of model output.",
+        "title": "Operational boundaries",
+        "body": "Project-specific services, users, storage, private listeners, resource limits and versioned releases isolate the application on shared infrastructure. General shell execution, arbitrary languages, automatic deployment to customer infrastructure, remote providers and external publishing connectors require additional engineering and authorization. Tenant RLS, administrator MFA and multi-region failover remain roadmap gates; application authorization and restricted database roles are the present boundary.",
         "items": []
       }
     ],
@@ -706,21 +674,21 @@
     "eyebrow": "ENGINEERING DOCUMENTATION",
     "title": "A contract before a connection.",
     "accent": "",
-    "description": "The current website has no deployed application API. No account, connector, inference or release request is issued by the browser. The public source documents the future contract.",
+    "description": "1. GET /auth/session establishes an anonymous HttpOnly cookie and returns a CSRF token. 2. POST /auth/login accepts email/password with Origin and X-CSRF-Token headers; successful authentication rotates the session. 3. Preserve th",
     "sections": [
       {
-        "title": "Current interfaces",
-        "body": "The current website has no deployed application API. No account, connector, inference or release request is issued by the browser. The public source documents the future contract.",
+        "title": "Authentication",
+        "body": "The authenticated control plane uses /api/v1 for saved workspaces, tasks, scoped sources, runs, approvals and delivery receipts. Read the OpenAPI contract and establish a session/CSRF token before protected mutations. Enrollment is operator-managed.",
         "items": []
       },
       {
-        "title": "Planned API domains",
-        "body": "Identity and sessions; organizations and membership; rooms and messages; tasks and runs; artifacts and approvals; connector grants; usage and schedules. OpenAPI will be generated from implemented routes.",
+        "title": "Resources",
+        "body": "Inspect OpenAPI for exact methods, schemas and paths. All writes require session/CSRF validation; object access additionally requires workspace membership and the appropriate role. Repository grants have no self-authorizing HTTP route.",
         "items": []
       },
       {
-        "title": "Contract requirements",
-        "body": "Tenant scope and role checks apply to every object access. Unsafe requests require CSRF/origin protection. Input bounds, pagination, optimistic revisions, idempotency and structured errors are part of endpoint acceptance criteria.",
+        "title": "Limits, errors and compatibility",
+        "body": "The v1 wire contract limits names to 80 characters, titles to 100, ordinary text to 4,000, artifacts to 20,000 and criteria to 20. Passwords require 12–128 characters. Settings own body, list, task/source/run quotas and request budgets. Responses use stable error codes, including 401 authentication, 403 permission/CSRF, 404 inaccessible objects, 409 stale/conflicting work, 422 invalid input, 429 exhausted budget and 503 unavailable readiness. Lists are bounded, not an unbounded historical export API. Mutations use task revisions and action request keys where supported. Reusing keys cannot create duplicate consequential actions. Following a timeout, inspect the recorded run/delivery before retrying. Breaking wire-contract changes require a new API version and migration notes.",
         "items": []
       }
     ],
@@ -733,21 +701,26 @@
     "eyebrow": "ENGINEERING DOCUMENTATION",
     "title": "Permissions before prompts.",
     "accent": "",
-    "description": "The authenticated phase requires secure server-side sessions, revocation, exact Origin checks, CSRF protection and explicit membership authorization before any object reaches the caller.",
+    "description": "Opaque server-side sessions, Argon2 password hashing, secure production cookies, session rotation/revocation, exact Origin and CSRF checks protect API mutations. Workspace membership and role authorization precede protected object",
     "sections": [
       {
-        "title": "Identity and tenant boundaries",
-        "body": "The authenticated phase requires secure server-side sessions, revocation, exact Origin checks, CSRF protection and explicit membership authorization before any object reaches the caller.",
+        "title": "Implemented controls",
+        "body": "Opaque server-side sessions, Argon2 password hashing, secure production cookies, session rotation/revocation, exact Origin and CSRF checks protect API mutations. Workspace membership and role authorization precede protected object access. Private API responses use Cache-Control: no-store; public caches must never store account or workspace responses. Task revisions and artifact hashes bind approvals to exact content. Two distinct authorized accounts approve client and developer decisions. Repository execution requires an operator-created workspace/target/profile grant. Revoked members, sources, grants and stopped workspaces cannot authorize later publication. Agent instructions and retrieved documents never grant permissions. The web service has no code execution route. Workers use pinned local model digests, structured responses, bounded correction rounds and separate review contexts. Protected test answers remain outside the model and guest. Rootless gVisor uses a read-only minimal rootfs, no guest network, no host credentials, fresh case processes and CPU/memory/process/output/time limits. Candidate output is untrusted data.",
         "items": []
       },
       {
-        "title": "Artifacts and consequential actions",
-        "body": "Approvals bind the exact version/hash, destination and arguments. A content change invalidates authorization. Separate actors approve content and release. External writes record intent, idempotency keys and destination receipts.",
+        "title": "Main threats and responses",
+        "body": " This release requires explicit operator configuration, bounded permissions and verification against the intended operating environment.",
         "items": []
       },
       {
-        "title": "Execution and retrieval",
-        "body": "Apply permissions before retrieval content reaches a model. Treat retrieved instructions as untrusted. Isolate runners and generated applications, restrict network/filesystem access, and keep provider credentials outside browser code.",
+        "title": "Operator requirements",
+        "body": "Use least-privilege service accounts and database roles, pinned SSH host keys, private database/inference listeners, maintained TLS, bounded logs, verified encrypted backups and tested restoration. Do not expose Ollama, PostgreSQL, Docker sockets or runner state to the Internet. Keep runtime secrets outside source, browser bundles, logs and command arguments. Restrict operator access using MFA at the access provider where available; application administrator MFA remains a roadmap item. Application-level authorization is implemented; PostgreSQL tenant RLS is a planned additional defense. Disk/volume encryption, independent penetration testing, supply-chain attestation, automated privacy erasure and continuous capacity testing require deployment-specific qualification. No scanner result establishes blanket security certification.",
+        "items": []
+      },
+      {
+        "title": "Vulnerability handling",
+        "body": "Use the private reporting route in SECURITY.md. Do not post credentials, personal information or exploit details in public issues. Assess impact, contain/revoke affected access, preserve redacted evidence, patch, verify and publish an appropriate advisory. Keep incident chronology and corrective actions. References: OWASP session management, multi-tenant security, gVisor production guide.",
         "items": []
       }
     ],
@@ -760,21 +733,26 @@
     "eyebrow": "ENGINEERING DOCUMENTATION",
     "title": "A million connections needs a workload.",
     "accent": "",
-    "description": "Target one million simultaneously connected users, with an assumed 10% active fraction and 0.2 API requests per active user per second: 20,000 requests/second sustained and 40,000 burst. These are planning assumptions, not test results.",
+    "description": "These are planning assumptions. Validate read/write mix, tenant skew, payload distribution, data size, cache hit ratio, event fan-out, geographic latency and burst duration before sizing. The current control UI polls every three s",
     "sections": [
       {
-        "title": "Future design envelope",
-        "body": "Target one million simultaneously connected users, with an assumed 10% active fraction and 0.2 API requests per active user per second: 20,000 requests/second sustained and 40,000 burst. These are planning assumptions, not test results.",
+        "title": "Workload assumptions",
+        "body": "The future envelope is 1M+ simultaneous users. Connected sessions, active users, API requests and running AI jobs have separate planning assumptions. Qualify traffic, storage, queues, inference capacity, failover and costs in stages before each expansion.",
         "items": []
       },
       {
         "title": "Architecture stages",
-        "body": "Progress from a measured single-host core to stateless replicas, bounded connection pools and separate gateways; then regional cells, tenant routing, private object storage and partitioning justified by query evidence.",
+        "body": "A stage is entered only after its previous workload envelope meets latency, error, correctness and recovery criteria. Add partitioning or read replicas only when measured query and write patterns justify them. Avoid giving every browser a database connection. PostgreSQL pools need a host-wide connection budget across all replicas and workers.",
         "items": []
       },
       {
-        "title": "Qualification and funding",
-        "body": "Test 1K, 10K, 100K and 1M connections with realistic write ratios, tenant skew, reconnect storms and failure recovery. Size services from measured throughput and target utilization. Startup free plans do not fund the full target envelope.",
+        "title": "AI and execution capacity",
+        "body": "Use durable admission queues, per-tenant concurrency/token budgets, queue deadlines, cancellation and backpressure. Size local inference from measured tokens/second, prompt/context length, output length, model memory and review multiplier. Size sandbox workers from measured case runtime and resource envelopes. Approximate required busy inference slots as admitted jobs/second × measured service seconds/job, then add bounded utilization and redundancy headroom. No useful GPU count or monthly price can be asserted without that workload and hardware benchmark. The current local-only model adapter does not become a remote GPU fleet by configuration. Secure distributed inference, workload identity, provider qualification and data-processing agreements need a separately reviewed adapter. Preserve model-digest checks and separate review/approval boundaries while scaling.",
+        "items": []
+      },
+      {
+        "title": "Viral bursts, cost and recovery",
+        "body": "Serve immutable public assets through a CDN; reserve private API paths from public caching. Apply quotas, request bounds, tenant fairness and queue admission before expensive work. Autoscaling must have an approved maximum, dependency limits and rollback/backpressure behavior. Database saturation, GPU queues, logging/egress costs and third-party quotas are practical blockers. Budget alerts are not spending caps. One million 1MB initial downloads is approximately 1TB of transfer before repeat requests. Large-scale operation requires funded capacity, current regional pricing and workload-based estimates. Existing-host operation and future paid expansion are separate stages. See performance qualification, cost boundaries and reliability. References: PostgreSQL connection resources, FastAPI deployment concepts.",
         "items": []
       }
     ],
@@ -787,21 +765,21 @@
     "eyebrow": "ENGINEERING DOCUMENTATION",
     "title": "Define the objective. Measure the experience.",
     "accent": "",
-    "description": "Proposed website/core availability objective: 99% over rolling 30 days, corresponding to 7h 12m of time-based unavailability. Future multi-zone objective 99.9% corresponds to 43m 12s. These are objectives, not observed history or contractual promises.",
+    "description": "Measure the public website, authenticated API and asynchronous work separately. Website probes must check expected content over public HTTPS. API probes check readiness and a controlled authenticated read. Track valid-request succ",
     "sections": [
       {
-        "title": "Initial operating objective",
-        "body": "Proposed website/core availability objective: 99% over rolling 30 days, corresponding to 7h 12m of time-based unavailability. Future multi-zone objective 99.9% corresponds to 43m 12s. These are objectives, not observed history or contractual promises.",
+        "title": "Service indicators",
+        "body": "Measure the public website, authenticated API and asynchronous work separately. Website probes must check expected content over public HTTPS. API probes check readiness and a controlled authenticated read. Track valid-request success, p50/p95/p99 latency, database pool saturation, queue depth/oldest age, worker heartbeat, lease recovery and delivery reconciliation. Define availability as good eligible events / all eligible events for request-based measurement, or good probe intervals / all scheduled intervals for time-based measurement. Do not interchange these denominators. Include eligible timeouts, 5xx and legitimate in-envelope 429s as failures. Exclude intentionally invalid/unauthorized requests consistently. Count planned maintenance against the initial objective; document any later contract-specific treatment. Report monitoring gaps as unknown coverage, never assumed uptime.",
         "items": []
       },
       {
-        "title": "Measurement policy",
-        "body": "Separate website availability, authenticated API success/latency and asynchronous completion. Count eligible timeouts, 5xx and valid-workload 429s as failures. Define maintenance treatment, telemetry gaps and monitoring coverage explicitly.",
+        "title": "Error budget and response",
+        "body": "Review the rolling window at least weekly. Alert on sustained outage and fast/slow error-budget burn using independent probes where available. When the budget is exhausted, prioritize reliability fixes, reduce risky releases and require recovery evidence before resuming changes. Record detection, impact, mitigation, restoration and corrective actions for incidents. Publish customer-relevant status without sensitive infrastructure details.",
         "items": []
       },
       {
-        "title": "Response and recovery",
-        "body": "Use public incident communication, error-budget-based prioritization, rollback procedures and postmortems. Backup success must be followed by a timed restore drill and application-level verification.",
+        "title": "Dependency and recovery limits",
+        "body": "The initial shared-host architecture has single-host/database dependency risk. Process restart and backups reduce recovery time but do not provide multi-zone failover. Local AI job latency has a separate queue/completion objective and must not make an otherwise healthy API appear ready for unlimited submissions. Initial proposed recovery objectives are RPO ≤24h and RTO ≤8h. Production timings and actual retained backup intervals must be recorded before claiming achieved recovery. A future multi-zone 99.9% objective allows 43m12s in 30 days and requires tested failover, dependency redundancy and funded operations. Reference: Google SRE: implementing SLOs, error-budget policy.",
         "items": []
       }
     ],
@@ -814,21 +792,26 @@
     "eyebrow": "ENGINEERING DOCUMENTATION",
     "title": "A release another person can operate.",
     "accent": "",
-    "description": "Build locally from the lockfile with the intended public origin. Keep versioned releases and content hashes. Validate the project server configuration before atomic activation, preserving unrelated applications.",
+    "description": "Confirm the target host and available capacity using native inventories. Capture the current live files/configuration, compare with the prior local manifest, and reconcile drift before editing. Build from pinned dependencies with ",
     "sections": [
       {
-        "title": "Website deployment",
-        "body": "Build locally from the lockfile with the intended public origin. Keep versioned releases and content hashes. Validate the project server configuration before atomic activation, preserving unrelated applications.",
+        "title": "Prepare and deploy",
+        "body": "Confirm the target host and available capacity using native inventories. Capture the current live files/configuration, compare with the prior local manifest, and reconcile drift before editing. Build from pinned dependencies with the intended public origin. Run tests, types, lint, dependency/security scans and a fresh-context source review. Render deployment settings centrally; secrets remain in private environment files with restricted permissions. Create a new versioned release and manifest. Provision only the project-specific service account, database identities/storage, local inference and protected runner within approved existing capacity. Migrate using the dedicated migration role; web/worker environments receive only runtime credentials. Validate reverse-proxy/systemd/container settings before activation. Keep database/inference listeners private and public routes on the single HTTPS origin.",
         "items": []
       },
       {
-        "title": "Backup and rollback",
-        "body": "Retain an off-server release archive and verify extraction against the manifest. Keep a previous release for rollback. The future database phase adds encrypted off-host backups, retention and restore drills before valuable data is accepted.",
+        "title": "Activate and validate",
+        "body": "Start database/inference, apply migrations, then start the API and worker. Check API schema readiness and actual model/sandbox qualification separately. Validate secure cookies, CSRF/Origin denial, outsider access denial, job completion, protected tests, distinct approvals and Git receipts through HTTPS. Switch the static release and proxy configuration only after preparation succeeds. Compare every deployed source/static/config byte with its local manifest. Preserve unrelated host services.",
         "items": []
       },
       {
-        "title": "Recovery targets",
-        "body": "Proposed initial application targets: RPO≤24h and RTO≤8h; later RPO≤15min/RTO≤1h after WAL/PITR and operational qualification. They remain targets until timed restoration evidence is published.",
+        "title": "Observe and respond",
+        "body": "Monitor HTTPS, eligible errors/latency, pool saturation, queue age, worker liveness, disk/memory, model latency and lease/reconciliation failures. Limit log size, redact credentials/content and define retention. Inspect error-budget burn before risky changes. Record incidents and remediation; public status must not disclose private topology or credentials.",
+        "items": []
+      },
+      {
+        "title": "Rollback",
+        "body": "Keep the previous release, proxy/service configuration and encrypted database backup. Stop new admissions and let bounded work finish or cancel/reconcile it. Restore the previous frontend/API configuration and restart only project services. Database migrations are additive but schema compatibility must be checked; never blindly downgrade a database with accepted writes. If restoration is required, document lost-write scope against RPO, restore to an isolated database, verify rows/authorization, then reopen. Record actual RTO and final parity. Account creation is operator-managed: python -m app.manage create-user --email USER_EMAIL --name USER_NAME prompts privately for a password. Use --password-stdin only with a protected pipe; never put passwords in arguments/history. Repository grants are operator CLI actions. See self-hosting and disaster recovery.",
         "items": []
       }
     ],

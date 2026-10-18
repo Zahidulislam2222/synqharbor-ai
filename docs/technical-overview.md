@@ -1,169 +1,186 @@
-# SynqHarbor AI — Technical Overview
+# Page 1 — Product and ownership
 
-Maintainer: Zahidul Islam. Release: 0.2.0. Reviewed: 2026-10-16.
+The release combines a static Next.js frontend with a same-origin FastAPI control plane, PostgreSQL ledger, separate durable worker, local Ollama inference and rootless gVisor execution. The web process never executes submitted code. /control/ uses authenticated persisted records. /workspace/ maintains separate browser-tab-local interaction state, cleared on reload.
 
-# Page 1 — Product and current release
+PostgreSQL owns run claims, leases, attempts, artifacts, approvals, audit events, delivery intents and receipts. Model calls occur outside database transactions. Fencing and revision checks prevent stale workers from publishing. Workspace stop, source/member revocation and repository grant changes serialize with publication. An acknowledged change prevents subsequent publication or waits for the bounded in-flight operation.
 
-SynqHarbor AI is an independent, self-hostable collaboration product maintained by Zahidul Islam. It is designed for clients, developers, operators and bounded AI agents working from shared context. The core principle is human ownership of decisions, explicit permissions and evidence attached to meaningful outcomes.
+Git preparation occurs in an isolated clone with installed hooks. Publication compares the expected reference atomically and uses the native index lock. An uncertain post-publication result stays reserved for read-only reconciliation. Dedicated operator-owned repositories must not be edited manually during installation.
 
-The current release delivers a professional multipage website and interactive workspace screens. Product, features, solutions, agents, integrations, self-hosting, company, security, legal and engineering pages are linked through shared navigation and a full footer directory. The workspace includes overview, rooms, task board, agents, approvals, artifacts, knowledge, activity and settings.
+Project-specific services, users, storage, private listeners, resource limits and versioned releases isolate the application on shared infrastructure. General shell execution, arbitrary languages, automatic deployment to customer infrastructure, remote providers and external publishing connectors require additional engineering and authorization. Tenant RLS, administrator MFA and multi-region failover remain roadmap gates; application authorization and restricted database roles are the present boundary.
 
-The website uses Next.js, React and TypeScript. Motion supports transitions; Lenis supplies progressive smooth scrolling. Fonts and media are self-hosted. Responsive layouts, focus handling and reduced-motion behavior are part of the design system.
+The current release implements the frontend and bounded authenticated drafting/review and Python coding/test/approved-Git workflows. Production evidence is recorded per release. General connectors, autonomous scheduling, administrator MFA, database RLS, customer-data legal readiness and large-scale capacity remain explicit gates. See core workflows and release acceptance.
 
-Workspace edits remain in the active browser tab and reset on reload. Account authentication, remote persistence, collaboration APIs, production agent jobs and external actions remain roadmap milestones. The current interface does not connect provider subscriptions or charge for inference.
+The authoritative detailed roadmap is BUILD-PLAN.md, which contains ten phases, five parallel workstreams per phase, deploy/rollback gates and 57 specified acceptance scenarios. A specified scenario is not a passing test.
 
-The public source, documentation and release history belong to the maintainer's GitHub project, Zahidulislam2222/synqharbor-ai. This overview explains current capability, operating objectives and future architecture separately. A future target becomes an available capability only after implementation, acceptance testing and deployment evidence.
+Every phase coordinates frontend, backend, agent/integration, infrastructure and quality work. Every phase ships a scoped increment with rollback; exit criteria are verified in the intended environment before that phase is marked complete.
 
-# Page 2 — People, workflows and available interactions
+# Page 2 — Frontend and authenticated workspace
 
-The initial audience is software and automation teams working with clients. Clients need a clear request, understandable progress and a reviewable result. Developers need bounded tasks, implementation evidence and authority over release. Operators need visibility into blocked work and recovery.
+The authenticated control plane uses /api/v1. Its exact machine-readable contract is GET /api/v1/openapi.json. /api/v1/health checks database connectivity and migration head; inference and sandbox qualification are separate readiness checks.
 
-The current workspace supports local task creation, search, project filtering, status changes, conversations, artifact inspection, task-report downloads and appearance preferences. Approval interactions distinguish client content acceptance from developer release decisions. A revision clears outdated authorization in the interface model.
+Never store the session cookie in JavaScript, URLs or localStorage. Cross-origin writes and missing/stale CSRF tokens are refused. Passwords are Argon2 hashed. Email ownership verification, self-service password recovery and administrator MFA are future work; operators create/recover accounts through a private verified process.
 
-Three records remain conceptually distinct. A message contributes to a conversation. A task defines work, ownership and acceptance criteria. A run records one execution attempt. Future backend implementation must preserve these distinctions so an informal message cannot silently become execution authority.
+Inspect OpenAPI for exact methods, schemas and paths. All writes require session/CSRF validation; object access additionally requires workspace membership and the appropriate role. Repository grants have no self-authorizing HTTP route.
 
-The target delivery workflow begins with a request and explicit criteria. A bounded Builder produces an artifact. Independent review examines the exact result and retained tests. The client approves content, while an authorized developer separately approves release.
+The v1 wire contract limits names to 80 characters, titles to 100, ordinary text to 4,000, artifacts to 20,000 and criteria to 20. Passwords require 12–128 characters. Settings own body, list, task/source/run quotas and request budgets. Responses use stable error codes, including 401 authentication, 403 permission/CSRF, 404 inaccessible objects, 409 stale/conflicting work, 422 invalid input, 429 exhausted budget and 503 unavailable readiness. Lists are bounded, not an unbounded historical export API.
 
-Business accountability and content operations are later workflows built on the same foundation. Source-linked commitments, follow-up drafts, campaign research and publishing all need scoped information and explicit external-action permissions.
+Mutations use task revisions and action request keys where supported. Reusing keys cannot create duplicate consequential actions. Following a timeout, inspect the recorded run/delivery before retrying. Breaking wire-contract changes require a new API version and migration notes.
 
-Current browser state is not an authoritative shared business record. Until persistent services are delivered, retain important information in your existing systems. No local approval action publishes software or sends a communication.
+The authenticated /control/ workspace uses an essential opaque HttpOnly session cookie. Production enables Secure, SameSite=Lax and a host-prefixed cookie scoped to /. The default session duration is 24 hours; login rotates the session and logout revokes it. An anonymous session is used to establish CSRF protection before login. Cookie values are not readable by JavaScript.
 
-# Page 3 — Architecture and trust boundaries
+The browser receives a CSRF token to authorize same-origin mutations. Account changes clear private UI state; delayed responses cannot install another account's workspace state. Private responses use no-store. /workspace/ interaction state lives only in the current tab and resets on reload.
 
-The delivered architecture is static: Next.js generates HTML and browser assets; a hardened static server distributes them; the browser runs interface interactions. Caddy supplies automatic HTTPS on the existing deployment, and Cloudflare provides network delivery and security services.
+# Page 3 — System architecture and boundaries
 
-Maintained content and navigation live in validated data files. Public origin, routes, media and motion settings have a central typed configuration owner. Public-prefixed build variables must never contain credentials. No provider key is required to run the website.
+The release combines a static Next.js frontend with a same-origin FastAPI control plane, PostgreSQL ledger, separate durable worker, local Ollama inference and rootless gVisor execution. The web process never executes submitted code. /control/ uses authenticated persisted records. /workspace/ maintains separate browser-tab-local interaction state, cleared on reload.
 
-The planned application adds a control plane for identity, membership, tasks, runs, artifacts, reviews, approvals and connector grants. PostgreSQL is proposed as the first authoritative durable store. Private object storage holds larger artifacts; notifications and caches remain separate from task authority.
+PostgreSQL owns run claims, leases, attempts, artifacts, approvals, audit events, delivery intents and receipts. Model calls occur outside database transactions. Fencing and revision checks prevent stale workers from publishing. Workspace stop, source/member revocation and repository grant changes serialize with publication. An acknowledged change prevents subsequent publication or waits for the bounded in-flight operation.
 
-A durable dispatcher assigns bounded work to qualified adapters and isolated outbound runners. The web server must never execute arbitrary agent-generated shell commands. Runtime, model provider, permissions and execution location are independent concepts.
+Git preparation occurs in an isolated clone with installed hooks. Publication compares the expected reference atomically and uses the native index lock. An uncertain post-publication result stays reserved for read-only reconciliation. Dedicated operator-owned repositories must not be edited manually during installation.
 
-Start the backend as a modular monolith with one authoritative dispatcher. Split services only when measured bottlenecks, security isolation or operational ownership justify the boundary. Competing schedulers must not claim the same task.
+Project-specific services, users, storage, private listeners, resource limits and versioned releases isolate the application on shared infrastructure. General shell execution, arbitrary languages, automatic deployment to customer infrastructure, remote providers and external publishing connectors require additional engineering and authorization. Tenant RLS, administrator MFA and multi-region failover remain roadmap gates; application authorization and restricted database roles are the present boundary.
 
-The future flow is authenticated request, authorization, persistent work, bounded execution, retained artifact, review, approval and authorized action. Each boundary needs a clear owner, observable state and recovery behavior. Public diagrams omit private infrastructure addresses and access material.
+# Page 4 — Identity, permissions and data
 
-# Page 4 — Backend and API development roadmap
+Opaque server-side sessions, Argon2 password hashing, secure production cookies, session rotation/revocation, exact Origin and CSRF checks protect API mutations. Workspace membership and role authorization precede protected object access. Private API responses use Cache-Control: no-store; public caches must never store account or workspace responses.
 
-A persistent collaboration backend is outside the current website release. Future API documentation will be generated from implemented schemas and verified against real HTTP behavior. Planned routes must not be presented as deployed endpoints.
+Task revisions and artifact hashes bind approvals to exact content. Two distinct authorized accounts approve client and developer decisions. Repository execution requires an operator-created workspace/target/profile grant. Revoked members, sources, grants and stopped workspaces cannot authorize later publication. Agent instructions and retrieved documents never grant permissions.
 
-Initial data domains include organizations, workspaces, memberships, rooms, messages, projects, tasks, runs, artifacts, reviews, approvals, grants, usage and action receipts. Records need stable identifiers, timestamps, provenance and explicit tenant ownership.
+The web service has no code execution route. Workers use pinned local model digests, structured responses, bounded correction rounds and separate review contexts. Protected test answers remain outside the model and guest. Rootless gVisor uses a read-only minimal rootfs, no guest network, no host credentials, fresh case processes and CPU/memory/process/output/time limits. Candidate output is untrusted data.
 
-Authentication must cover secure server-side sessions, expiry, revocation, account recovery and protection against CSRF. Every object access requires backend tenant and role authorization. A visible UI role is not sufficient authority.
+Use least-privilege service accounts and database roles, pinned SSH host keys, private database/inference listeners, maintained TLS, bounded logs, verified encrypted backups and tested restoration. Do not expose Ollama, PostgreSQL, Docker sockets or runner state to the Internet. Keep runtime secrets outside source, browser bundles, logs and command arguments. Restrict operator access using MFA at the access provider where available; application administrator MFA remains a roadmap item.
 
-Task changes need optimistic revision checks. Artifact versions and content hashes must be immutable. Approval records bind an exact version, destination, environment and arguments. Changed content invalidates previous authorization. Client acceptance and developer release require distinct permissions and, where policy requires, distinct actors.
+Application-level authorization is implemented; PostgreSQL tenant RLS is a planned additional defense. Disk/volume encryption, independent penetration testing, supply-chain attestation, automated privacy erasure and continuous capacity testing require deployment-specific qualification. No scanner result establishes blanket security certification.
 
-The API contract must document validation, pagination, body limits, stable errors, rate limits and compatibility. External writes need idempotency and an action-intent ledger. After an uncertain timeout, inspect the destination before retrying rather than duplicating an accepted action.
+Use the private reporting route in SECURITY.md. Do not post credentials, personal information or exploit details in public issues. Assess impact, contain/revoke affected access, preserve redacted evidence, patch, verify and publish an appropriate advisory. Keep incident chronology and corrective actions.
 
-Acceptance tests cover guessed identifiers, cross-tenant access, revoked grants, concurrent updates, stale approvals, duplicate events and interrupted work. Database migration, backup and restoration procedures must be established before persistent customer workloads are accepted. These requirements remain separate from the published frontend milestone.
+References: OWASP session management, multi-tenant security, gVisor production guide.
 
-# Page 5 — Agents, artifacts and human authority
+# Page 5 — Agents, review and human authority
 
-Builder and Reviewer are the initial role model. An agent role is not a model, provider or permission grant. Qualified runtimes should remain replaceable without changing the task and approval foundation.
+The frontend and authenticated control plane implement two bounded core workflows:
 
-The website currently presents agent concepts through profiles and local interactions. It does not execute models, connect subscriptions, run shell commands or publish to external systems. Real execution requires an explicitly authorized route and independently enforced tools.
+These workflows do not establish completion of the ten-phase production roadmap. Unrestricted language/build environments, remote deployment connectors, production tenancy qualification, cloud surfaces and capacity/recovery targets remain separate gates.
 
-Each future assignment should carry the objective, relevant sources, acceptance criteria, allowed actions, artifact references and remaining budget. Start with deterministic routing to explicitly assigned agents. Enforce step, time, concurrency and spending bounds.
+Install the pinned backend requirements into an isolated Python 3.12 environment. Copy the backend settings from .env.example into backend/.env, supply a fresh session secret and choose a database URL. Keep the real values in the ignored recovery file. SQLite remains supported for development. PostgreSQL is exercised by the full backend suite and the actual local qualification. Use separate migration and runtime roles: runtime connections reject superuser, BYPASSRLS, schema-create and table-owning privileges. The migration URL is used only by the explicit migration command. PostgreSQL RLS policies and production operational qualification remain separate roadmap work; restricted roles do not by themselves provide tenant RLS.
 
-Independent review examines exact artifacts and retained test evidence. A second model can contribute findings but does not prove correctness. Outcome qualification combines protected automated checks, structured review and human judgment.
+Build the frontend with the configured public origin and set SH_FRONTEND_DIRECTORY to the resulting static export. From backend/:
 
-Coding execution requires disposable project copies, restricted filesystem access, controlled networking and resource limits. A worktree separates changes but does not isolate the operating system. Production credentials, unrestricted home directories and the Docker socket must remain inaccessible to jobs.
+Open /control/ on SH_PUBLIC_ORIGIN. Register the developer account, create a workspace and invite a separate client account. Add explicit criteria before starting a task. Read the exact artifact before approving. /workspace/ remains the browser-local workspace interface.
 
-The evidence trail should distinguish prepared work, completed review, granted approval, submitted action, destination acceptance and confirmed outcome. These states must survive interruption. Chat text cannot override backend authority, and retrieved documents cannot expand an agent's permissions. External communications and release actions remain human-controlled capabilities.
+The control UI checks session identity around private refresh batches and hides private state before rechecking a newly activated tab. This handles a shared browser cookie changing in another tab. Keep the configured session request budget compatible with the configured polling frequency; a regression checks the defaults. Identity changes invalidate delayed responses and clear invitation, artifact, CSRF and workspace state.
 
-# Page 6 — Installation, configuration and delivery
+Release authorization and acknowledged workspace stops, member/source revocations and host repository-grant changes share a database transaction lock. A control change either completes before a new Git write and blocks it, or acknowledges after the bounded in-flight Git operation ends. External inference still runs outside transactions. Verification errors after an accepted Git commit retain an uncertain receipt and the task reservation until read-only reconciliation proves the outcome.
 
-Use the documented Node.js 24 runtime and the pinned package lock. Install with npm ci. Configure NEXT_PUBLIC_SITE_URL to the intended HTTPS origin, then run tests, type checking, lint and the production build. The output directory is out/.
+Fixture practice runs remain available and deliver an internal artifact. They no longer implicitly receive a globally configured repository release target.
 
-Serve the export with correct MIME types, directory indexes, real 404 responses, compression and media range support. Static output does not provide request-dependent server actions, authentication or API routes. Self-hosted fonts avoid runtime font-CDN requests.
+# Page 6 — Protected code execution and Git delivery
 
-Release locally first. Compare the current live release with the local manifest before replacing it. Reconcile newer live changes into local source. Build and review the change, upload a versioned release, validate its server configuration, check health and atomically activate it.
+The frontend and authenticated control plane implement two bounded core workflows:
 
-Preserve the previous release and an off-host archive. After activation, check HTTPS, routes, interactive behavior and exact file hashes. Scope shared-host changes to the project's own site, port and application identity; do not modify unrelated services.
+These workflows do not establish completion of the ten-phase production roadmap. Unrestricted language/build environments, remote deployment connectors, production tenancy qualification, cloud surfaces and capacity/recovery targets remain separate gates.
 
-Configuration ownership is explicit: deployment/environment values in typed settings, maintained copy in data files, secrets in approved private storage and recovery records. Public examples contain safe placeholders.
+Install the pinned backend requirements into an isolated Python 3.12 environment. Copy the backend settings from .env.example into backend/.env, supply a fresh session secret and choose a database URL. Keep the real values in the ignored recovery file. SQLite remains supported for development. PostgreSQL is exercised by the full backend suite and the actual local qualification. Use separate migration and runtime roles: runtime connections reject superuser, BYPASSRLS, schema-create and table-owning privileges. The migration URL is used only by the explicit migration command. PostgreSQL RLS policies and production operational qualification remain separate roadmap work; restricted roles do not by themselves provide tenant RLS.
 
-CSP policies must be generated from the exact UTF-8 scripts in the release and tested in a real browser. A successful build or HTTP 200 cannot establish that hydration and interactions work under production headers. Future backend releases additionally need migration and state-aware rollback planning.
+Build the frontend with the configured public origin and set SH_FRONTEND_DIRECTORY to the resulting static export. From backend/:
 
-# Page 7 — Security controls and verification
+Open /control/ on SH_PUBLIC_ORIGIN. Register the developer account, create a workspace and invite a separate client account. Add explicit criteria before starting a task. Read the exact artifact before approving. /workspace/ remains the browser-local workspace interface.
 
-The current static release uses HTTPS, self-hosted assets, a generated script policy, dependency checking, secret scanning and reviewed deployment. The serving container is nonroot and read-only, with dropped capabilities, resource limits and loopback-only publishing.
+The control UI checks session identity around private refresh batches and hides private state before rechecking a newly activated tab. This handles a shared browser cookie changing in another tab. Keep the configured session request budget compatible with the configured polling frequency; a regression checks the defaults. Identity changes invalidate delayed responses and clear invitation, artifact, CSRF and workspace state.
 
-Private credentials, project memory, recovery records and unshipped work are excluded from Git publication. A public repository must be scanned across staging and history before pushing. Configuration examples must never contain live access values.
+Release authorization and acknowledged workspace stops, member/source revocations and host repository-grant changes share a database transaction lock. A control change either completes before a new Git write and blocks it, or acknowledges after the bounded in-flight Git operation ends. External inference still runs outside transactions. Verification errors after an accepted Git commit retain an uncertain receipt and the task reservation until read-only reconciliation proves the outcome.
 
-Future application controls should map to OWASP ASVS 5.0.0 with status, evidence and ownership. Priority controls include object-level authorization, tenant isolation, safe database queries, output encoding, secure sessions, CSRF protection, validated uploads and bounded resource use.
+Fixture practice runs remain available and deliver an internal artifact. They no longer implicitly receive a globally configured repository release target.
 
-Agent systems also require defenses against prompt injection, sensitive-data disclosure, excessive agency and unsafe output handling. Treat retrieved instructions as untrusted. Enforce permissions outside the model, and never use prompts as a substitute for backend authorization.
+# Page 7 — Security and vulnerability response
 
-Pin dependencies, review licenses, triage advisories and require focused changes. Gitleaks and Semgrep complement behavioral tests and independent review; a passing tool is evidence within a defined scope, not a certification.
+Opaque server-side sessions, Argon2 password hashing, secure production cookies, session rotation/revocation, exact Origin and CSRF checks protect API mutations. Workspace membership and role authorization precede protected object access. Private API responses use Cache-Control: no-store; public caches must never store account or workspace responses.
 
-The project enables GitHub private vulnerability reporting. Reports should include affected release, minimal reproduction and impact. Do not publish credentials or sensitive exploit information, access other people's data, scan unrelated infrastructure or run denial-of-service tests. Disclosure and verification are coordinated with the maintainer.
+Task revisions and artifact hashes bind approvals to exact content. Two distinct authorized accounts approve client and developer decisions. Repository execution requires an operator-created workspace/target/profile grant. Revoked members, sources, grants and stopped workspaces cannot authorize later publication. Agent instructions and retrieved documents never grant permissions.
 
-# Page 8 — Privacy, legal responsibility and accessibility
+The web service has no code execution route. Workers use pinned local model digests, structured responses, bounded correction rounds and separate review contexts. Protected test answers remain outside the model and guest. Rootless gVisor uses a read-only minimal rootfs, no guest network, no host credentials, fresh case processes and CPU/memory/process/output/time limits. Candidate output is untrusted data.
 
-The current website has no account registration, contact intake form or advertising analytics. Workspace interactions remain local to the browser tab. Hosting and security services can process technical request metadata, including network and browser information.
+Use least-privilege service accounts and database roles, pinned SSH host keys, private database/inference listeners, maintained TLS, bounded logs, verified encrypted backups and tested restoration. Do not expose Ollama, PostgreSQL, Docker sockets or runner state to the Internet. Keep runtime secrets outside source, browser bundles, logs and command arguments. Restrict operator access using MFA at the access provider where available; application administrator MFA remains a roadmap item.
 
-The current deployment uses an existing Contabo server and Cloudflare delivery/security services. Third-party links enter their own services. Server logs are capacity-rotated; a fixed age-based retention period has not been verified. Privacy concerns should use the contact page to arrange private communication, not publish personal data in issues.
+Application-level authorization is implemented; PostgreSQL tenant RLS is a planned additional defense. Disk/volume encryption, independent penetration testing, supply-chain attestation, automated privacy erasure and continuous capacity testing require deployment-specific qualification. No scanner result establishes blanket security certification.
 
-The operator is Zahidul Islam. A corporate entity, governing jurisdiction, signed DPA or universal compliance claim is not invented. Website terms, acceptable use, privacy and cookies policies describe current operation; commercial contracts and customer processing schedules require separate agreement.
+Use the private reporting route in SECURITY.md. Do not post credentials, personal information or exploit details in public issues. Assess impact, contain/revoke affected access, preserve redacted evidence, patch, verify and publish an appropriate advisory. Keep incident chronology and corrective actions.
 
-Future self-host operators must document purposes, roles, categories, retention, exports, deletion, subprocessors and inference destinations. Self-hosting does not automatically keep connected model context local. Assess international transfers and applicable rights before accepting customer data.
+References: OWASP session management, multi-tenant security, gVisor production guide.
 
-Where GDPR applies, distinguish processor notification to its controller from conditional controller authority-notification duties. Source software uses Apache 2.0; dependencies and typefaces retain their licenses.
+# Page 8 — Privacy and legal readiness
 
-Accessibility targets WCAG 2.2 AA. Evaluate keyboard navigation, visible focus, contrast, reflow, touch targets, announcements, forms and reduced motion. Automated checks support human workflow evaluation. A target or axe result is not an accessibility certification.
+Last reviewed: 2026-10-18.
 
-# Page 9 — Availability, monitoring and support
+SynqHarbor AI provides a public website and an operator-managed authenticated workspace. The maintainer is Zahidul Islam. Self-hosting operators determine their own deployment purposes and must publish the applicable operator contact and processing schedule before accepting customer personal data.
 
-The proposed initial operating objective is 99% availability over rolling 30 days. A future multi-zone stage targets 99.9% after redundancy, capacity and incident response are qualified. These are objectives, not measured uptime history or a contractual SLA.
+Passwords are hashed; plaintext passwords are not stored by the application. Source documents and candidate code can contain personal information, so users must provide only authorized, necessary content. The local model adapter sends no context to a paid/cloud inference endpoint. Model downloads and software updates contact their registries separately from task inference.
 
-For a 30-day period, time-based 99% availability permits 7 hours 12 minutes of unavailability; 99.9% permits 43 minutes 12 seconds. Request-based availability must be calculated from actual eligible events rather than inferred from these time equivalents.
+The hosted website uses existing Contabo hosting and Cloudflare network delivery/security. GitHub hosts public source and feedback. Following third-party links uses those services under their own policies. Do not submit confidential or personal data in public issues.
 
-Define success, eligible requests, maintenance treatment and telemetry gaps before reporting. Count timeouts, server errors and valid-workload throttling as failures as appropriate. Rejecting legitimate traffic must not manufacture a better availability result.
+Configured sessions/invitations expire after 24h by default. Operators control account/workspace retention, access and backup expiry. SH_RETENTION_DAYS expresses policy configuration; automatic deletion of all workspace records is not implemented. Operators must enforce and document deletion/retention operationally, including audit/legal holds and backup expiry. Technical log rotation currently bounds volume; a fixed age-based retention guarantee requires deployment verification.
 
-Separate website delivery, authenticated API success/latency and asynchronous completion. Planned indicators include latency percentiles, queue age, completion success, reconnect behavior and artifact durability. Per-tenant views must reveal customers hidden by aggregate success.
+Arrange a private channel through the maintainer profile for access, correction, export, deletion or privacy concerns. Verify the requester before disclosing data. Applicable rights, lawful basis, retention periods, processing locations and international transfers depend on the actual operator/customer arrangement. Do not enter regulated or sensitive customer data until that schedule and the required agreements/controls have been qualified.
 
-Monitor public reachability, TLS expiry, resource saturation, disk capacity and release health. Future workers need heartbeats and stale-run detection. Telemetry must avoid sensitive content. The current status page reports a point-in-time browser connection check rather than historical uptime.
+See data processing, legal readiness and cookies. No advertising or behavioral analytics trackers are installed.
 
-Use an error-budget policy to prioritize reliability when objectives are threatened. Incident procedures define severity, owner, escalation, communication and follow-up. Community support has no contracted response-time commitment. Continuous staffed support requires separately agreed people and operating capacity.
+This guide identifies applicability and implementation work for an operator; it does not replace legal advice or certify a deployment. Determine the business/operator role, markets, user ages/locations, data categories, sector, vendors, regions and intended AI use before deciding which obligations apply.
 
-# Page 10 — Recovery, portability and operational ownership
+Official sources: EDPB, European Commission AI Act guidance, FTC data protection, HHS cloud guidance.
 
-Recovery scope includes source, locked dependencies, release artifacts, configuration and protected access material. A backup stored only on the same host does not protect against losing that host.
+# Page 9 — Reliability and the 99% objective
 
-The current static website can be rebuilt from the public repository and public build configuration. Versioned release archives are retained off-server, extracted into a separate restore directory and compared with a SHA-256 manifest. The previous deployed release remains available for rollback.
+The initial service objective is 99% availability over a rolling 30-day window. A time-based 99% objective permits 7 hours 12 minutes of unavailable time in 30 days. It is an operating target; a contractual SLA requires an explicit agreement and remedy terms.
 
-Future persistent operation requires encrypted off-host database/object backups, monitored failures, retention and timed restore drills. Keep recovery keys separate from encrypted backups and control access without making recovery dependent on an undisclosed personal account.
+Measure the public website, authenticated API and asynchronous work separately. Website probes must check expected content over public HTTPS. API probes check readiness and a controlled authenticated read. Track valid-request success, p50/p95/p99 latency, database pool saturation, queue depth/oldest age, worker heartbeat, lease recovery and delivery reconciliation.
 
-Proposed startup objectives are RPO no greater than 24 hours and RTO no greater than 8 hours. A later qualified stage targets RPO no greater than 15 minutes and RTO no greater than 1 hour. These remain targets until actual drills establish feasibility.
+Define availability as good eligible events / all eligible events for request-based measurement, or good probe intervals / all scheduled intervals for time-based measurement. Do not interchange these denominators. Include eligible timeouts, 5xx and legitimate in-envelope 429s as failures. Exclude intentionally invalid/unauthorized requests consistently. Count planned maintenance against the initial objective; document any later contract-specific treatment. Report monitoring gaps as unknown coverage, never assumed uptime.
 
-RPO describes the acceptable data-loss window. RTO describes the target restoration time for required functionality. Define incident start/end and application integrity checks. Successful backup creation is not proof of a usable restore.
+Review the rolling window at least weekly. Alert on sustained outage and fast/slow error-budget burn using independent probes where available. When the budget is exhausted, prioritize reliability fixes, reduce risky releases and require recovery evidence before resuming changes. Record detection, impact, mitigation, restoration and corrective actions for incidents. Publish customer-relevant status without sensitive infrastructure details.
 
-PostgreSQL point-in-time recovery requires appropriate base backups and retained WAL. Drills should cover a lost host, broken release, failed migration, compromised credential and unavailable provider. Record elapsed time, recovered data point and unresolved dependencies. Portability requires exportable configuration, artifacts, account inventory and a clear operator handover.
+The initial shared-host architecture has single-host/database dependency risk. Process restart and backups reduce recovery time but do not provide multi-zone failover. Local AI job latency has a separate queue/completion objective and must not make an otherwise healthy API appear ready for unlimited submissions.
 
-# Page 11 — Future 1M+ simultaneous-user architecture
+Initial proposed recovery objectives are RPO ≤24h and RTO ≤8h. Production timings and actual retained backup intervals must be recorded before claiming achieved recovery. A future multi-zone 99.9% objective allows 43m12s in 30 days and requires tested failover, dependency redundancy and funded operations.
 
-The growth architecture targets more than one million simultaneously connected users. Connections, active requests, retained data and executing jobs are different capacity dimensions. The current website does not establish authenticated million-user collaboration capacity.
+Reference: Google SRE: implementing SLOs, error-budget policy.
 
-The proposed envelope assumes 1,000,000 connections, 10% active users and 0.2 API requests per active user per second: 20,000 requests/second sustained and 40,000 burst. At an assumed 20KB per connection, gateway memory approaches 20GB before transport and application overhead.
+# Page 10 — Scaling toward 1M+ simultaneous users
 
-If 1% submit one agent job per hour, arrivals are approximately 2.78 jobs/second. At a three-minute mean duration, approximately 500 jobs execute concurrently. Model throughput, sandbox resources and tool latency require independent measurements.
+One million simultaneous users is the future design envelope. Connected users, actively interacting users, API requests and running AI jobs consume different resources. The present single-host release has no measured million-user capacity.
 
-The future architecture separates static delivery, stateless APIs, connection gateways, durable dispatch and isolated workers. Regional cells, tenant routing, bounded database pools, private object storage, authorization-aware caches and controlled fan-out reduce shared failure domains. Partition data only after query evidence justifies it.
+These are planning assumptions. Validate read/write mix, tenant skew, payload distribution, data size, cache hit ratio, event fan-out, geographic latency and burst duration before sizing. The current control UI polls every three seconds and rechecks identity around private batches; at one million tabs this is unsuitable. Replace polling with authorized push/invalidation, cursor-based deltas, jitter and backoff before that stage. Preserve account-switch privacy guarantees.
 
-Qualify 1K, 10K, 100K and 1M connections progressively. Include realistic writes, tenant skew, reconnect storms, spikes, soak, dependency failures and recovery. Test generators need capacity checks; dropped iterations invalidate conclusions.
+A stage is entered only after its previous workload envelope meets latency, error, correctness and recovery criteria. Add partitioning or read replicas only when measured query and write patterns justify them. Avoid giving every browser a database connection. PostgreSQL pools need a host-wide connection budget across all replicas and workers.
 
-Proposed interactive targets include p95 at most 500ms, p99 at most 1500ms and error ratio at most 1% under the defined envelope, with no lost accepted writes or stale authorization. These are qualification targets. Funding, staffing and published test evidence are prerequisites for this operating stage.
+Use durable admission queues, per-tenant concurrency/token budgets, queue deadlines, cancellation and backpressure. Size local inference from measured tokens/second, prompt/context length, output length, model memory and review multiplier. Size sandbox workers from measured case runtime and resource envelopes. Approximate required busy inference slots as admitted jobs/second × measured service seconds/job, then add bounded utilization and redundancy headroom. No useful GPU count or monthly price can be asserted without that workload and hardware benchmark.
 
-# Page 12 — Ten-phase roadmap, cloud costs and references
+The current local-only model adapter does not become a remote GPU fleet by configuration. Secure distributed inference, workload identity, provider qualification and data-processing agreements need a separately reviewed adapter. Preserve model-digest checks and separate review/approval boundaries while scaling.
 
-The full build plan is authoritative. Its ten phases are: foundation/deployment; identity/tenancy; collaboration and durable controlled execution; artifacts/evidence/approvals; local AI and isolated runners; complete client delivery; permission-aware knowledge; business workflows/scheduling; operations/reliability/portability/capacity; production pilot and handover.
+Serve immutable public assets through a CDN; reserve private API paths from public caching. Apply quotas, request bounds, tenant fairness and queue admission before expensive work. Autoscaling must have an approved maximum, dependency limits and rollback/backpressure behavior. Database saturation, GPU queues, logging/egress costs and third-party quotas are practical blockers. Budget alerts are not spending caps.
 
-Each phase coordinates frontend, backend, agent/integration, infrastructure and quality tracks. Each ships a scoped increment with rollback and measured exit gates. Website publication does not close backend or cloud engineering gates.
+References: PostgreSQL connection resources, FastAPI deployment concepts.
 
-Startup targets zero new service charges using an existing host within measured capacity. Existing infrastructure still has ownership costs. AWS, GCP and Azure initially serve bounded public surfaces without competing task authorities.
+# Page 11 — Operations and recovery
 
-CloudFront Free flat-rate is distinct from pay-as-you-go allowances. Published startup limits include 1M monthly requests, 100GB transfer and 5GB storage, with no SLA. Firebase Spark is quota-limited and can stop affected services; linking billing upgrades to Blaze. Azure Static Web Apps Free has bounded storage/domains and no SLA. Recheck eligibility before deployment.
+Confirm the target host and available capacity using native inventories. Capture the current live files/configuration, compare with the prior local manifest, and reconcile drift before editing. Build from pinned dependencies with the intended public origin. Run tests, types, lint, dependency/security scans and a fresh-context source review. Render deployment settings centrally; secrets remain in private environment files with restricted permissions.
 
-One million 1MB initial page loads already transfer about 1TB. Free startup plans cannot supply the complete target envelope. Paid capacity, inference, egress and staffing need current estimates and explicit approval; alerts are not universal spending caps.
+Create a new versioned release and manifest. Provision only the project-specific service account, database identities/storage, local inference and protected runner within approved existing capacity. Migrate using the dedicated migration role; web/worker environments receive only runtime credentials. Validate reverse-proxy/systemd/container settings before activation. Keep database/inference listeners private and public routes on the single HTTPS origin.
 
-Primary references: sre.google/workbook/implementing-slos/; owasp.org/projects/asvs; w3.org/TR/WCAG22/; postgresql.org/docs/current/continuous-archiving.html; aws.amazon.com/cloudfront/pricing/; firebase.google.com/docs/projects/billing/firebase-pricing-plans; learn.microsoft.com/en-us/azure/static-web-apps/plans. Detailed guides preserve direct links and verification boundaries.
+Start database/inference, apply migrations, then start the API and worker. Check API schema readiness and actual model/sandbox qualification separately. Validate secure cookies, CSRF/Origin denial, outsider access denial, job completion, protected tests, distinct approvals and Git receipts through HTTPS. Switch the static release and proxy configuration only after preparation succeeds. Compare every deployed source/static/config byte with its local manifest. Preserve unrelated host services.
+
+Monitor HTTPS, eligible errors/latency, pool saturation, queue age, worker liveness, disk/memory, model latency and lease/reconciliation failures. Limit log size, redact credentials/content and define retention. Inspect error-budget burn before risky changes. Record incidents and remediation; public status must not disclose private topology or credentials.
+
+Keep the previous release, proxy/service configuration and encrypted database backup. Stop new admissions and let bounded work finish or cancel/reconcile it. Restore the previous frontend/API configuration and restart only project services. Database migrations are additive but schema compatibility must be checked; never blindly downgrade a database with accepted writes. If restoration is required, document lost-write scope against RPO, restore to an isolated database, verify rows/authorization, then reopen. Record actual RTO and final parity.
+
+# Page 12 — Roadmap, licensing and qualification
+
+The current release implements the frontend and bounded authenticated drafting/review and Python coding/test/approved-Git workflows. Production evidence is recorded per release. General connectors, autonomous scheduling, administrator MFA, database RLS, customer-data legal readiness and large-scale capacity remain explicit gates. See core workflows and release acceptance.
+
+The authoritative detailed roadmap is BUILD-PLAN.md, which contains ten phases, five parallel workstreams per phase, deploy/rollback gates and 57 specified acceptance scenarios. A specified scenario is not a passing test.
+
+Every phase coordinates frontend, backend, agent/integration, infrastructure and quality work. Every phase ships a scoped increment with rollback; exit criteria are verified in the intended environment before that phase is marked complete.
+
+Read the complete public documentation for exact settings, commands and deployment responsibilities. Acceptance criteria and remaining qualification gates guide each release. Future capacity requires workload assumptions, measured hardware performance, operational controls and approved funding. Source is Apache-2.0; dependencies, model weights and fonts retain their respective licenses. Zahidul Islam maintains this project and its public repository.
+
+
+Future cloud delivery prioritizes suitable AWS, GCP and Azure components within verified free allowances. The existing authorized host supplies heavy local inference and protected execution. Secure hybrid adapters, account eligibility, dependency costs and separately approved paid growth remain release gates.

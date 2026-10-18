@@ -1,40 +1,27 @@
-# Data processing and deployment responsibilities
+# Data processing and operator responsibilities
 
-The current website has no deployed account API, contact intake form or remote
-workspace database. Workspace interactions use browser-tab memory. Hosting/network
-providers can process technical request metadata as described in the privacy policy.
+## Processing schedule before customer data
 
-| Data class | Current behavior | Future requirement |
+Each deployment must identify the actual controller, processor and subprocessors; user/customer locations; account and content data categories; processing purposes and lawful basis; sensitive-data conditions; hosting/support/model locations; retention/deletion; transfer mechanisms; and accountable contacts. A software license is not a signed processing agreement.
+
+| Surface | Current boundary | Required operator evidence |
 |---|---|---|
-| Workspace edits | Current browser tab only | Authenticated tenant storage, exports, deletion and retention |
-| Account details | No account registration | Identity verification/recovery and documented lawful processing |
-| Contact messages | Linked services handle communication | Private intake, retention and verified receipt states |
-| Request logs | Infrastructure-controlled technical logs | Minimization, documented duration and rights handling |
-| Model context | No inference requests | Explicit provider/data destination qualification and disclosure |
+| Accounts and sessions | Database-backed access and revocation | Identity recovery, request verification, retention and privacy notice |
+| Workspace content | Membership/role-scoped API and worker context | Customer authority, minimization, access review and tenant tests |
+| Model inference | Installed local weights; task-selected context | Local processing location, model license, prompts/log retention and authorized access |
+| Code execution | Isolated protected test cases | Host/sandbox qualification, abuse controls and incident handling |
+| External Git write | Operator-granted dedicated repository | Explicit destination authority, exact approval and receipt reconciliation |
+| Hosting/CDN | Technical request processing | Vendor terms, subprocessors, location/transfer and log controls |
+| Backups | Operator-controlled encrypted archives | Key separation, retention, restoration and eventual expiry |
 
-## Roles and processing schedule
+## Rights and deletion
 
-A self-hosting operator determines deployment purposes and controls stored data.
-The software maintainer does not automatically become a processor for every
-installation. Hosted service contracts must identify the actual controller,
-processor, subprocessors, categories, purposes, locations, retention and safeguards.
-No signed DPA is supplied by this website.
+Provide a verified private request channel, export useful account/workspace data without exposing another tenant, correct inaccurate data and enforce applicable deletion/restriction/objection rights. Preserve narrowly justified legal holds. Explain that deletion from active systems and expiry from backups follow different schedules. Restoration must reapply deletion/revocation obligations before reopening service. Automatic comprehensive erasure is roadmap work; operator procedures must cover present deployments.
 
-Before a customer deployment accepts personal data, complete the processing
-schedule, operator contact, rights-request process, breach process and international
-transfer assessment. Do not infer governing law from a timezone or server location.
+## Incident and transfer obligations
 
-## Export, deletion and incident handling
+Maintain detection, containment, evidence preservation, notification decision and recovery procedures. Under GDPR, processor-to-controller notification differs from the conditional controller-to-authority 72-hour requirement. Assess international transfers and vendor support access; server geography alone does not resolve jurisdiction. Regulated health data requires a separate eligibility, contract and control review before any processing.
 
-Future deletion must cover databases, indexes, objects, caches and backup expiry.
-Legal holds and backup restoration behavior need explicit policies. Export must
-preserve useful provenance without exposing another tenant’s information.
+Primary guidance: [EDPB roles](https://www.edpb.europa.eu/sme/learn-the-basics/data-controller-or-data-processor_en), [data security](https://www.edpb.europa.eu/sme/be-compliant/secure-personal-data_en), [HHS cloud guidance](https://www.hhs.gov/hipaa/for-professionals/special-topics/health-information-technology/cloud-computing/index.html).
 
-Where GDPR applies, distinguish processor notification to its controller from
-conditional controller notification to an authority. Do not treat a conditional
-72-hour rule as a universal incident promise.
-
-Primary guidance: [EDPB SME guide](https://www.edpb.europa.eu/sme_en),
-[individual rights](https://www.edpb.europa.eu/sme/be-compliant/respect-individuals-rights_en),
-[transfers](https://www.edpb.europa.eu/sme/be-compliant/international-data-transfers_en),
-[breaches](https://www.edpb.europa.eu/sme/assess-the-risks/data-breaches_en).
+Maintained by [Zahidul Islam](https://github.com/Zahidulislam2222). See the [documentation index](README.md) and [delivery roadmap](roadmap.md).

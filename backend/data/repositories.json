@@ -1,0 +1,15 @@
+{
+  "order-quote": {
+    "name": "Order pricing and discounts",
+    "specification": "Implement store.pricing.quote(value). value is an object with items (list of objects, each with integer cents and integer quantity) and discount (integer percentage from 0 to 100). Compute the subtotal as sum of cents times quantity. store.discounts.apply_discount(cents, percent) must subtract the percentage using integer arithmetic, rounding the final payable amount down to whole cents: cents * (100 - percent) // 100. quote must call that helper and return an object with subtotal_cents and total_cents. Empty items produces zero. Implement both approved modules. Standard library only.",
+    "files": ["store/pricing.py", "store/discounts.py"],
+    "entrypoint": "store.pricing:quote",
+    "cases": [
+      {"input": {"items": [{"cents": 1250, "quantity": 2}, {"cents": 999, "quantity": 1}], "discount": 10}, "expected": {"subtotal_cents": 3499, "total_cents": 3149}},
+      {"input": {"items": [], "discount": 30}, "expected": {"subtotal_cents": 0, "total_cents": 0}},
+      {"input": {"items": [{"cents": 333, "quantity": 3}], "discount": 100}, "expected": {"subtotal_cents": 999, "total_cents": 0}},
+      {"input": {"items": [{"cents": 101, "quantity": 7}], "discount": 0}, "expected": {"subtotal_cents": 707, "total_cents": 707}},
+      {"input": {"items": [{"cents": 1, "quantity": 1}], "discount": 50}, "expected": {"subtotal_cents": 1, "total_cents": 0}}
+    ]
+  }
+}

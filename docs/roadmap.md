@@ -1,7 +1,10 @@
 # Delivery roadmap
 
-The professional website is a published frontend milestone. Backend, execution,
-connectors and cloud qualification remain separate engineering work.
+The current release implements the frontend and bounded authenticated drafting/review
+and Python coding/test/approved-Git workflows. Production evidence is recorded per
+release. General connectors, autonomous scheduling, administrator MFA, database
+RLS, customer-data legal readiness and large-scale capacity remain explicit gates.
+See [core workflows](core-engine.md) and [release acceptance](release-checklist.md).
 
 The authoritative detailed roadmap is [BUILD-PLAN.md](../BUILD-PLAN.md), which
 contains ten phases, five parallel workstreams per phase, deploy/rollback gates
@@ -23,3 +26,13 @@ and 57 specified acceptance scenarios. A specified scenario is not a passing tes
 Every phase coordinates frontend, backend, agent/integration, infrastructure and
 quality work. Every phase ships a scoped increment with rollback; exit criteria
 are verified in the intended environment before that phase is marked complete.
+
+## Cloud and hybrid delivery direction
+
+Prioritize qualified AWS, GCP and Azure components within verified free allowances,
+using the existing host for suitable costly or compute-heavy work. Preserve the
+current authorized deployment while cloud account/plan eligibility, native resource
+inventories, data boundaries, dependency costs and migration/rollback gates are
+assessed. See [cloud roles and cost boundaries](cloud-costs.md). Future distributed
+control/inference paths need secure adapters and their own workload qualification;
+this roadmap enables no automatic paid fallback.

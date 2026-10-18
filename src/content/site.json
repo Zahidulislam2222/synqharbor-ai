@@ -24,7 +24,10 @@
   "hero": {
     "imageAlt": "Sculptural titanium harbor pavilion above a calm midnight ocean",
     "eyebrow": "A NEW WAY TO WORK, TOGETHER",
-    "title": ["Great minds.", "One harbor."],
+    "title": [
+      "Great minds.",
+      "One harbor."
+    ],
     "description": "Your people. Your agents. Your next big idea. Bring them into one beautifully connected workspace—and move from conversation to creation.",
     "primary": "Explore the workspace",
     "secondary": "See how it flows",
@@ -44,7 +47,11 @@
     "title": "Everything in its place.",
     "italic": "Everyone in their flow.",
     "description": "Conversations, tasks, and the work itself. Finally, a shared space that connects the dots without adding to the noise.",
-    "tabs": ["Your workspace", "Your workflow", "Your agents"],
+    "tabs": [
+      "Your workspace",
+      "Your workflow",
+      "Your agents"
+    ],
     "link": "Take a look around",
     "previewLabel": "Interactive workspace"
   },

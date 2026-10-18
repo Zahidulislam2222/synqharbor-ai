@@ -1,6 +1,10 @@
 # SynqHarbor AI Production Build Plan
 
-Planning date: 2026-10-16. Status: all ten phases are planned; none is implemented or deployed.
+Planning date: 2026-10-16. Updated 2026-10-18: the ten production release phases
+remain unclosed. A bounded local control engine now implements portions of the
+identity, task/run, artifact/approval and isolated test-release workflows; see
+[current implementation boundaries](docs/core-engine.md). No backend production
+deployment or full-phase completion is claimed.
 
 Build a self-hosted collaboration platform for small software and automation agencies. The first complete workflow is a client change request, explicit acceptance criteria, an isolated Builder, protected tests, an independent Reviewer, a artifact view, separate client and developer approvals, and a recorded release receipt. Later business and content workflows reuse this foundation.
 
@@ -18,7 +22,7 @@ This is a build and release specification. It does not authorize provisioning, s
 | Database | PostgreSQL is authoritative for memberships, tasks, attempts, event sequences, approvals, action intents/receipts, budgets, and schedules. Separate migration and restricted application roles. |
 | Execution | One PostgreSQL-backed dispatcher owns claims, leases, fencing, retries, and state transitions. A dedicated worker invokes adapters. No Celery/Temporal/custom-scheduler combination. |
 | AI | Deterministic test in tests; qualified local CPU inference for real runs. llama.cpp is an available MIT-licensed runtime, but model weights, their license, quality, memory, and performance need separate qualification. [Runtime source](https://github.com/ggml-org/llama.cpp) |
-| Code runner | Outbound paired runner on separately isolated existing Linux/WSL hardware. The shared production server does not execute arbitrary agent-generated code. |
+| Code runner | The current bounded Python route uses rootless gVisor on the existing host with no guest network/host credentials and explicit resource limits. General-purpose execution requires separately isolated worker infrastructure and additional qualification. |
 | Artifacts | Private filesystem-backed blob storage behind a storage interface initially; opaque object keys, authenticated API downloads, version hashes, quotas, quarantine, and backup. S3 compatibility is optional, not a reason to create billed storage. |
 | Retrieval | PostgreSQL full-text search first; pgvector and a qualified local embedding model when useful. Hybrid search is supported without another database. [pgvector](https://github.com/pgvector/pgvector) |
 | Live updates | SSE from persisted event sequences; reconnect, access recheck, backpressure, and polling fallback. Redis is optional and never authoritative. |

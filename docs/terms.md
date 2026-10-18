@@ -29,3 +29,7 @@ The roadmap describes future engineering work. Availability objectives are opera
 - Policies may change as delivered capabilities change
 
 Contact: [project maintainer](https://github.com/Zahidulislam2222). Arrange a private channel before sharing personal data; never put credentials or confidential data into public issues.
+
+## Authenticated workspace and AI output
+
+Use only accounts and workspaces you are authorized to access. Keep account credentials private and report compromise through a private channel. Source documents and repository content must be lawfully supplied. AI output requires human assessment; separate approvals authorize only their exact version and allowed destination. Hosted customer terms, processing agreements, support and any contractual SLA require explicit agreement. The public 99% objective and future capacity roadmap do not create automatic service-credit terms.

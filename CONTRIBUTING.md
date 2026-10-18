@@ -16,3 +16,7 @@ belongs in the roadmap; never invent customer, capacity or compliance results.
 
 Automated tests belong in tests/. Private recovery and personal tooling remain
 ignored. Never bypass a security scan. Contributions use Apache 2.0.
+
+## Backend contributions
+
+Use Python 3.12 and the pinned `backend/requirements-dev.txt`. Run backend pytest, Ruff and mypy in addition to frontend checks. Changes to authorization, execution, migrations, release or configuration require acceptance criteria, meaningful regression coverage, security scans and fresh-context review. Do not run destructive database parity tests against application data. Real local-model/sandbox and deployed workflow checks supplement isolated automated tests. See [release acceptance](docs/release-checklist.md).

@@ -27,7 +27,7 @@ describe("public website contracts", () => {
   });
   it("uses professional public language and explicit operating boundaries", () => {
     expect(values([pages, site]).join(" ")).not.toMatch(/\b(?:demo|preview|prototype|synthetic|illustrative)\b/i);
-    expect(pages.find(page => page.slug === "docs/api")?.sections[0].body).toContain("no deployed application API");
+    expect(pages.find(page => page.slug === "docs/api")?.sections[0].body).toContain("/api/v1");
     expect(pages.find(page => page.slug === "status")?.description).toContain("point-in-time");
     expect(pages.find(page => page.slug === "docs/scalability")?.sections[0].body).toContain("planning assumptions");
   });

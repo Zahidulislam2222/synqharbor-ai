@@ -1,0 +1,20 @@
+.root { max-width: 1200px; margin: 0 auto; padding: 32px 20px 80px; color: #e6ecf1; }
+.root h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+.root h2, .root h3 { margin: 0 0 16px; }
+.root p { line-height: 1.6; margin: 12px 0; }
+.header { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+.header nav, .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.root a { color: #9ee8cf; text-decoration: underline; text-underline-offset: 4px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 20px; }
+.panel { min-width: 0; background: #121e29; border: 1px solid #384653; border-radius: 16px; padding: 24px; margin: 16px 0; }
+.root form { display: grid; gap: 16px; margin: 20px 0; }
+.root label { display: grid; gap: 8px; font-size: 0.95rem; }
+.root input, .root textarea, .root select { width: 100%; min-width: 0; padding: 12px; background: #0b1520; color: #f3f6fa; border: 1px solid #718392; border-radius: 8px; font: inherit; }
+.root textarea { min-height: 100px; resize: vertical; }
+.root button { cursor: pointer; font: inherit; border: 1px solid #718392; background: #1e3d39; color: #ecfff8; padding: 11px 16px; border-radius: 8px; }
+.root button:disabled { opacity: 0.5; cursor: default; }
+.root :focus-visible { outline: 3px solid #9ee8cf; outline-offset: 4px; }
+.root pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #0b1520; padding: 16px; border-radius: 8px; max-height: 480px; overflow-y: auto; font-size: 0.85rem; }
+.root ul, .root ol { padding-left: 24px; line-height: 1.8; }
+.digest { display: block; overflow-wrap: anywhere; font-size: 0.8rem; margin: 12px 0; }
+.error { background: #492631; border: 1px solid #ffb0b9; padding: 16px; border-radius: 8px; }

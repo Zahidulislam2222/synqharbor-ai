@@ -1,31 +1,9 @@
-# Cookies
+# Cookies and browser storage
 
-Last reviewed: 2026-10-16.
+The authenticated `/control/` workspace uses an essential opaque HttpOnly session cookie. Production enables Secure, SameSite=Lax and a host-prefixed cookie scoped to `/`. The default session duration is 24 hours; login rotates the session and logout revokes it. An anonymous session is used to establish CSRF protection before login. Cookie values are not readable by JavaScript.
 
-The current website does not install advertising, analytics or account-session cookies.
+The browser receives a CSRF token to authorize same-origin mutations. Account changes clear private UI state; delayed responses cannot install another account's workspace state. Private responses use no-store. `/workspace/` interaction state lives only in the current tab and resets on reload.
 
-## Current behavior
+No advertising/behavioral analytics cookies are installed by the application. Hosting/network security providers may apply their own necessary security processing. Operators must inspect their actual delivery configuration and publish any additional cookies, purposes, recipients and retention before enabling optional tracking. Where consent is required for non-essential processing, obtain it before that processing begins.
 
-Appearance and workspace interactions live in the current page state. No account authentication or persistent workspace storage is provided by this release.
-
-- No advertising cookies
-- No analytics cookies
-- No browser localStorage credentials
-
-## Network services
-
-Hosting and security providers may process technical request information or apply security mechanisms. Their behavior can depend on their configuration and the request.
-
-- Cloudflare supplies network delivery/security
-- External GitHub pages have their own policies
-- The website does not control third-party pages
-
-## Future changes
-
-Authenticated platform sessions will require a documented secure cookie policy. Optional tracking would require its own assessment and consent handling where applicable.
-
-- Host-only secure session design
-- HttpOnly and SameSite controls planned
-- Policy updated before capability changes
-
-Contact: [project maintainer](https://github.com/Zahidulislam2222). Arrange a private channel before sharing personal data; never put credentials or confidential data into public issues.
+Maintained by [Zahidul Islam](https://github.com/Zahidulislam2222). See the [documentation index](README.md) and [delivery roadmap](roadmap.md).

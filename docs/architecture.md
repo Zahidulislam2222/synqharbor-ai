@@ -1,17 +1,27 @@
 # Architecture
 
-Next.js exports static routes. React and Motion handle browser interactions. A hardened static server sits behind Caddy HTTPS and Cloudflare delivery. Browser workspace state does not leave the tab.
+The release combines a static Next.js frontend with a same-origin FastAPI control plane, PostgreSQL ledger, separate durable worker, local Ollama inference and rootless gVisor execution. The web process never executes submitted code. `/control/` uses authenticated persisted records. `/workspace/` maintains separate browser-tab-local interaction state, cleared on reload.
 
-## Current website
+## Trust boundaries
 
-Next.js exports static routes. React and Motion handle browser interactions. A hardened static server sits behind Caddy HTTPS and Cloudflare delivery. Browser workspace state does not leave the tab.
+| Boundary | Enforcement |
+|---|---|
+| Browser → API | HTTPS, opaque HttpOnly Secure host cookie, SameSite=Lax, exact Origin and synchronizer CSRF token |
+| User → workspace | Membership and role checked on each protected request; inaccessible objects return 404 |
+| Task → run | Revision, explicit criteria, selected source IDs, bounded dispatch and idempotency |
+| Worker → model | Loopback local-only endpoint, complete installed model digest verification, separate Builder/Reviewer contexts |
+| Worker → code | Fresh gVisor process per protected case, empty environment, read-only code/rootfs, no network or host credentials |
+| Approval → release | Immutable artifact hash and revision, distinct client/developer accounts, operator repository grant, pinned Git base |
+| Runtime → database | Separate migration identity; runtime cannot own tables/schema, CREATE schema or bypass row security |
 
-## Future control plane
+## Durable work
 
-FastAPI and PostgreSQL own identities, membership, tasks, runs, artifacts, approvals, grants and an append-only application audit trail. A modular monolith keeps one authoritative task dispatcher.
+PostgreSQL owns run claims, leases, attempts, artifacts, approvals, audit events, delivery intents and receipts. Model calls occur outside database transactions. Fencing and revision checks prevent stale workers from publishing. Workspace stop, source/member revocation and repository grant changes serialize with publication. An acknowledged change prevents subsequent publication or waits for the bounded in-flight operation.
 
-## Execution boundary
+Git preparation occurs in an isolated clone with installed hooks. Publication compares the expected reference atomically and uses the native index lock. An uncertain post-publication result stays reserved for read-only reconciliation. Dedicated operator-owned repositories must not be edited manually during installation.
 
-Outbound runners accept bounded assignments. Coding work runs in disposable isolated environments; the web server never executes arbitrary agent-generated commands. Tools enforce authorization independently of model output.
+## Operational boundaries
 
-See [the documentation index](README.md) and [the full build plan](../BUILD-PLAN.md).
+Project-specific services, users, storage, private listeners, resource limits and versioned releases isolate the application on shared infrastructure. General shell execution, arbitrary languages, automatic deployment to customer infrastructure, remote providers and external publishing connectors require additional engineering and authorization. Tenant RLS, administrator MFA and multi-region failover remain roadmap gates; application authorization and restricted database roles are the present boundary.
+
+Maintained by [Zahidul Islam](https://github.com/Zahidulislam2222). See the [documentation index](README.md) and [delivery roadmap](roadmap.md).
