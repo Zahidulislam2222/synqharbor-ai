@@ -27,3 +27,13 @@ tests at application data.
 Read [core workflows](../docs/core-engine.md), [API](../docs/api.md),
 [configuration](../docs/configuration.md), [security](../docs/security.md),
 [self-hosting](../docs/self-hosting.md) and [deployment templates](../infra/backend/README.md).
+
+For PostgreSQL parity, keep the configuration private and specify the test root:
+
+```sh
+pytest -c pyproject.toml -q tests --database-test-config /path/to/private-postgres.json
+```
+
+Pinning the config and test directory prevents an external temporary configuration
+path from changing pytest discovery. The config provides separate migration and
+restricted runtime URLs; use a dedicated disposable qualification database.

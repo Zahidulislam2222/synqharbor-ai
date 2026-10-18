@@ -23,6 +23,8 @@ the [GitHub releases](https://github.com/Zahidulislam2222/synqharbor-ai/releases
 | Scheduled backup retention, stale-backup alerts and recurring upkeep | Deferred | A manual restore drill does not prove an unattended backup service |
 | Host/zone resilience | Deferred | The initial service has a single-host/database failure domain; no high-availability claim |
 | Customer-data legal and organizational controls | Deferred | Complete jurisdiction/vendor/contract assessment, admin MFA, retention/rights/erasure processes and operational controls before customer enrollment |
+| Container/IaC vulnerability qualification and signed provenance | Unverified | Packages are audited and official images/runtime are pinned; dedicated image/IaC vulnerability reports, SBOMs and artifact signing remain release-specific qualification work before customer or unattended operation |
+| Clean-host recreation and formal compatibility/deprecation matrices | Deferred | Versioned source/config and tested ledger migrations exist; full fresh-host recovery and broader older-client/event compatibility require separate qualification |
 | Kubernetes, microservices and Redis execution | Not applicable | Not selected for this release; multiple processes/containers do not establish microservices |
 
 Zahidul Islam owns deferred operational/security work **before customer enrollment

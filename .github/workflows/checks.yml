@@ -84,7 +84,7 @@ jobs:
               "migration_url": "postgresql+psycopg://postgres:test-key@localhost:5432/synqharbor_test_ci",
               "runtime_url": "postgresql+psycopg://synqharbor_test_runtime:test-key@localhost:5432/synqharbor_test_ci"}))
           PY
-      - run: pytest -q --database-test-config "${{ runner.temp }}/synqharbor-postgres.json"
+      - run: pytest -c pyproject.toml -q tests --database-test-config "${{ runner.temp }}/synqharbor-postgres.json"
       - run: pip-audit -r requirements.txt
       - run: python -m compileall -q app runner migrations
       # Test providers only. Real local-model/gVisor qualification is a separate local gate.
